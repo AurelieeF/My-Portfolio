@@ -230,17 +230,62 @@
       }
       .hero-copy { position: relative; z-index: 2; max-width: 610px; }
       .hero-readout { display: none; }
-      .hero-flora {
+      .hero-flora-wrap {
         position: absolute;
         z-index: 1;
         top: 32px;
         right: -84px;
         width: min(58%, 620px);
-        height: auto;
+        height: 420px;
+        pointer-events: auto;
+        filter: drop-shadow(0 0 23px #a96ed733);
+      }
+      .hero-flora {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
         overflow: visible;
         opacity: .88;
         pointer-events: none;
-        filter: drop-shadow(0 0 23px #a96ed733);
+        transform-origin: 50% 78%;
+        transition: transform 420ms ease, filter 420ms ease;
+      }
+      .hero-flora-wrap:hover .hero-flora,
+      .hero-flora-wrap:focus-within .hero-flora {
+        animation: plant-dance 820ms ease-in-out 2 alternate;
+        filter: drop-shadow(0 0 26px rgba(255, 223, 141, 0.55)) drop-shadow(0 0 38px rgba(199, 140, 255, 0.28));
+      }
+      .hero-flora-sparkles {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: visible;
+      }
+      .plant-spark {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        left: 50%;
+        top: 8%;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(248,208,255,1) 28%, rgba(246,148,211,0.7) 52%, rgba(130,247,238,0.2) 100%);
+        opacity: 0;
+        box-shadow: 0 0 10px rgba(250, 186, 233, 0.9), 0 0 20px rgba(131, 232, 255, 0.8);
+        animation: sparkle-fall 980ms ease-out forwards;
+      }
+      @keyframes plant-dance {
+        0% { transform: rotate(0deg) translateY(0) scale(1); }
+        18% { transform: rotate(-2deg) translateY(-4px) scale(1.01); }
+        32% { transform: rotate(2.6deg) translateY(-1px) scale(1.02); }
+        52% { transform: rotate(-3deg) translateY(-6px) scale(1.03); }
+        74% { transform: rotate(2deg) translateY(-3px) scale(1.02); }
+        100% { transform: rotate(0deg) translateY(0) scale(1); }
+      }
+      @keyframes sparkle-fall {
+        0% { opacity: 0; transform: translate(0, 0) scale(0.2); }
+        18% { opacity: 1; }
+        100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1.4); }
       }
       .garden-stem { fill: none; stroke: #79dbe0; stroke-opacity: .68; stroke-width: 2; }
       .garden-leaf { fill: #6388bd2e; stroke: #83e2e1; stroke-opacity: .72; stroke-width: 1.5; }
@@ -650,17 +695,20 @@
           <div class="readout-orbit" aria-hidden="true"><span></span><i></i></div>
           <div class="readout-bottom"><span data-i18n="software">LOGICIEL</span><span data-i18n="embedded">SYSTÈMES EMBARQUÉS</span><span data-i18n="collaborations">COLLABORATION</span></div>
         </aside>
-        <svg class="floral-art hero-flora" viewBox="0 0 560 430" aria-hidden="true" focusable="false">
-          <path class="garden-stem" d="M302 430C290 342 330 284 299 224C272 173 324 110 326 34M302 335C258 289 231 282 201 283M312 284C365 253 392 246 423 253M298 218C257 181 245 154 243 126M322 146C363 119 385 91 396 56"/>
-          <path class="garden-leaf" d="M285 322C238 278 213 285 200 283C221 316 251 331 285 322M321 283C358 244 394 244 423 253C398 283 362 295 321 283M290 198C254 155 248 138 243 126C277 143 294 166 290 198M339 132C373 94 389 74 396 56C405 91 383 122 339 132"/>
-          <use href="#garden-flower" x="238" y="5" width="178" height="178"/>
-          <use href="#garden-flower" x="116" y="208" width="112" height="112" opacity=".82"/>
-          <use href="#garden-flower" x="384" y="185" width="124" height="124" opacity=".86"/>
-          <use href="#garden-flower" x="347" y="20" width="78" height="78" opacity=".6"/>
-          <circle class="fairy-light" cx="200" cy="168" r="3"/>
-          <circle class="fairy-light fairy-light-two" cx="431" cy="153" r="2.5"/>
-          <circle class="fairy-light fairy-light-three" cx="371" cy="348" r="2"/>
-        </svg>
+        <div class="hero-flora-wrap" aria-label="Plante animée" tabindex="0">
+          <svg class="floral-art hero-flora" viewBox="0 0 560 430" aria-hidden="true" focusable="false">
+            <path class="garden-stem" d="M302 430C290 342 330 284 299 224C272 173 324 110 326 34M302 335C258 289 231 282 201 283M312 284C365 253 392 246 423 253M298 218C257 181 245 154 243 126M322 146C363 119 385 91 396 56"/>
+            <path class="garden-leaf" d="M285 322C238 278 213 285 200 283C221 316 251 331 285 322M321 283C358 244 394 244 423 253C398 283 362 295 321 283M290 198C254 155 248 138 243 126C277 143 294 166 290 198M339 132C373 94 389 74 396 56C405 91 383 122 339 132"/>
+            <use href="#garden-flower" x="238" y="5" width="178" height="178"/>
+            <use href="#garden-flower" x="116" y="208" width="112" height="112" opacity=".82"/>
+            <use href="#garden-flower" x="384" y="185" width="124" height="124" opacity=".86"/>
+            <use href="#garden-flower" x="347" y="20" width="78" height="78" opacity=".6"/>
+            <circle class="fairy-light" cx="200" cy="168" r="3"/>
+            <circle class="fairy-light fairy-light-two" cx="431" cy="153" r="2.5"/>
+            <circle class="fairy-light fairy-light-three" cx="371" cy="348" r="2"/>
+          </svg>
+          <div class="hero-flora-sparkles" aria-hidden="true"></div>
+        </div>
         <div class="hero-coordinate" aria-hidden="true">AURÉLIE FIDELIA / GREATER MONTRÉAL</div>
       </section>
 
@@ -1485,6 +1533,8 @@
 
       const nightSky = document.querySelector(".night-sky");
       const sparkleLayer = document.querySelector(".cursor-sparkles");
+      const plantSparkContainer = document.querySelector(".hero-flora-sparkles");
+      const plantHoverZone = document.querySelector(".hero-flora-wrap");
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
       const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
       const starFragment = document.createDocumentFragment();
@@ -1527,6 +1577,37 @@
         sparkleLayer.append(fragment);
       }
 
+      function createPlantSpark(x, y) {
+        const spark = document.createElement("span");
+        spark.className = "plant-spark";
+        spark.style.left = `${x}px`;
+        spark.style.top = `${y}px`;
+        spark.style.setProperty("--dx", `${-20 + Math.random() * 40}px`);
+        spark.style.setProperty("--dy", `${18 + Math.random() * 34}px`);
+        spark.style.animationDelay = `${Math.random() * 120}ms`;
+        spark.style.width = `${4 + Math.random() * 6}px`;
+        spark.style.height = spark.style.width;
+        plantSparkContainer.append(spark);
+        setTimeout(() => spark.remove(), 1050);
+      }
+
+      function triggerPlantSparkBurst() {
+        if (!plantSparkContainer || reducedMotion.matches) {
+          return;
+        }
+        const bounds = plantHoverZone.getBoundingClientRect();
+        const centerX = bounds.width * 0.48;
+        const centerY = bounds.height * 0.25;
+        for (let index = 0; index < 16; index += 1) {
+          const angle = ((Math.PI * 2) / 16) * index + Math.random() * 0.8;
+          const radius = 18 + Math.random() * 54;
+          createPlantSpark(
+            centerX + Math.cos(angle) * radius,
+            centerY + Math.sin(angle) * radius + 10
+          );
+        }
+      }
+
       function showCursorSparkle(event) {
         const now = performance.now();
         const distance = Math.hypot(event.clientX - previousPointer.x, event.clientY - previousPointer.y);
@@ -1544,6 +1625,16 @@
         sparkle.classList.remove("is-visible");
         void sparkle.offsetWidth;
         sparkle.classList.add("is-visible");
+      }
+
+      if (plantHoverZone) {
+        const plantActivate = () => {
+          if (reducedMotion.matches) return;
+          triggerPlantSparkBurst();
+        };
+        plantHoverZone.addEventListener("mouseenter", plantActivate);
+        plantHoverZone.addEventListener("focusin", plantActivate);
+        plantHoverZone.addEventListener("click", plantActivate);
       }
 
       startSparkleTrail();
