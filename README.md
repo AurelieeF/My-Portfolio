@@ -1,4 +1,4 @@
-# Aurélie Fidelia — Engineering Portfolio
+# Aurélie Fidelia — Engineering Portfolio (https://aurelie-portfolio-nu.vercel.app/)
 
 A responsive French-default, bilingual single-page portfolio for a software
 engineering student at ÉTS, styled as an enchanted night garden with restrained
