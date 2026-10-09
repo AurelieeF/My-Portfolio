@@ -1,0 +1,1558 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#100d24">
+    <meta name="description" content="Aurélie Fidelia est étudiante en génie logiciel à l'ÉTS et explore le logiciel, les systèmes embarqués et les projets collaboratifs.">
+    <title>Aurélie Fidelia — Portfolio en génie logiciel</title>
+    <style>
+      :root{color-scheme:dark;--bg:#09121d;--panel:#101c28;--line:#293a46;--muted:#a4b0b9;--text:#e7edf0;--cyan:#83d2df;--mono:"Cascadia Code","Segoe UI Mono",Consolas,monospace;--sans:"Segoe UI","Helvetica Neue",Arial,sans-serif}
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth;scroll-padding-top:28px}
+      body{margin:0;background:var(--bg);color:var(--text);font:15px/1.7 var(--sans)}
+      a{color:inherit;text-decoration:none}
+      a:hover{color:var(--cyan)}
+      button{font:inherit}
+      :focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+      ::selection{background:#28717c;color:white}
+      [hidden]{display:none!important}
+      .skip-link{position:fixed;z-index:20;top:8px;left:8px;padding:10px 14px;transform:translateY(-150%);background:var(--cyan);color:#07121a}
+      .skip-link:focus{transform:translateY(0)}
+      .section-shell{width:min(1120px,calc(100% - 64px));margin-inline:auto}
+      .site-header{min-height:76px;padding:12px max(32px,calc((100vw - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #92a9b824;background:#09121df5}
+      .header-actions{display:flex;align-items:center;gap:12px}
+      .wordmark{display:inline-flex;flex:none;gap:11px;align-items:center;font:500 10px var(--mono);letter-spacing:.12em}
+      .wordmark-mark{display:grid;width:30px;height:30px;place-items:center;border:1px solid #3b7480;color:var(--cyan);font-size:11px}
+      .primary-nav{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
+      .primary-nav a,.header-index{color:#c0cbd2;font-size:11px}
+      .header-index{flex:none;font:10px var(--mono);letter-spacing:.08em}
+      .language-toggle{flex:none;padding:7px 11px;border:1px solid #d6b4df55;border-radius:999px;background:#281e3c78;color:#f4eaf3;font-size:11px;cursor:pointer}
+      .language-toggle:hover{border-color:#86e7ed;color:#fff}
+      .status-dot{display:inline-block;width:6px;height:6px;margin:0 8px 1px 0;border-radius:50%;background:var(--cyan)}
+      .hero{min-height:560px;position:relative;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:48px;padding-top:50px;padding-bottom:84px}
+      .eyebrow{margin:0 0 17px;color:var(--cyan);font:10px var(--mono);letter-spacing:.14em}
+      .eyebrow-line{display:inline-block;width:23px;height:1px;margin:0 9px 3px 0;background:var(--cyan)}
+      h1,h2,h3,p{margin-top:0}
+      h1{margin-bottom:22px;font-size:clamp(52px,7vw,83px);font-weight:600;letter-spacing:-.075em;line-height:1.08}
+      h1 span{color:#9eafb9}
+      .hero-intro{max-width:490px;margin-bottom:22px;color:#c1cbd1;font-size:15px;line-height:1.9}
+      .intro-details{display:flex;flex-wrap:wrap;gap:8px 17px;margin:0 0 24px;color:#aab9c2;font:9px var(--mono);letter-spacing:.06em}
+      .text-link{display:inline-flex;gap:18px;align-items:center;padding-bottom:7px;border-bottom:1px solid #4d8992;color:#e4edef;font-size:12px}
+      .text-link span{color:var(--cyan)}
+      .hero-readout{height:330px;position:relative;overflow:hidden;border:1px solid #354956;background:linear-gradient(145deg,#101c28,#0a1520 74%)}
+      .readout-top,.readout-bottom{position:absolute;z-index:1;right:18px;left:18px;display:flex;justify-content:space-between;gap:8px;color:#a9b7c0;font:9px var(--mono);letter-spacing:.07em}
+      .readout-top{top:17px}.readout-bottom{bottom:17px;font-size:8px}
+      .readout-grid{position:absolute;inset:0;opacity:.42;background-image:linear-gradient(#7091a01f 1px,transparent 1px),linear-gradient(90deg,#7091a01f 1px,transparent 1px);background-size:30px 30px;mask-image:linear-gradient(transparent,#000 20%,#000 80%,transparent)}
+      .readout-orbit{position:absolute;width:195px;height:195px;top:50%;left:50%;transform:translate(-50%,-46%);border:1px solid #49616d;border-radius:50%}
+      .readout-orbit:before,.readout-orbit:after{content:"";position:absolute;inset:21px;border:1px dashed #49616d;border-radius:50%}
+      .readout-orbit:after{inset:52px;border-style:solid}
+      .readout-orbit span{position:absolute;top:36px;right:12px;width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 16px #83d2df8c}
+      .readout-orbit i{position:absolute;top:50%;left:50%;width:38px;height:38px;transform:translate(-50%,-50%);border:1px solid #6a8995;background:radial-gradient(circle,#83d2df24,transparent 70%)}
+      .hero-coordinate{position:absolute;bottom:28px;left:0;color:#9aabb5;font:9px var(--mono);letter-spacing:.1em}
+      .content-section{padding-top:78px;padding-bottom:26px}
+      .section-heading{display:flex;justify-content:space-between;align-items:end;gap:42px;margin-bottom:26px}
+      .section-heading .eyebrow{margin-bottom:12px}
+      h2{margin-bottom:0;font-size:clamp(28px,4vw,39px);font-weight:600;letter-spacing:-.055em;line-height:1.2}
+      .section-summary{width:min(390px,42%);margin:0 0 3px;color:#b0bdc5;font-size:12px;line-height:1.8}
+      .filter-row{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 22px}
+      .filter-button{display:inline-flex;align-items:center;gap:12px;padding:9px 12px;border:1px solid #3c4e5b;background:transparent;color:#c1cbd1;cursor:pointer;font-size:10px}
+      .filter-button span{color:#a2b0ba;font:9px var(--mono)}
+      .filter-button:hover,.filter-button.is-selected{border-color:#6aadb8;background:#10232d;color:#ecf8f8}
+      .project-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+      .timeline{position:relative;padding-left:20px}
+      .timeline:before{content:"";position:absolute;top:14px;bottom:14px;left:5px;width:1px;background:linear-gradient(#42616d,#273a46)}
+      .project-card{position:relative;display:grid;grid-template-columns:minmax(155px,.34fr) minmax(0,1fr);align-content:start;column-gap:26px;padding:21px 24px;border:1px solid #344653;background:linear-gradient(145deg,#101c28,#0c1721);transition:border-color .2s ease,background .2s ease}
+      .timeline .project-card:before{content:"";position:absolute;top:25px;left:-20px;width:8px;height:8px;border:1px solid #83d2df;border-radius:50%;background:var(--bg);box-shadow:0 0 0 4px var(--bg)}
+      .project-card:hover,.project-card:focus-visible,.project-card[data-active=true]{border-color:#6aadb8;background:linear-gradient(145deg,#12232e,#0d1924)}
+      .project-card[role=button]{cursor:pointer}
+      .project-card[hidden]{display:none}
+      .card-topline{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px}
+      .card-index,.card-footer{color:#aab8c0;font:9px var(--mono);letter-spacing:.08em}
+      .card-statuses{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:7px}
+      .status{display:inline-flex;align-items:center;gap:6px;color:#e2c78a;font:9px var(--mono)}
+      .status i{width:5px;height:5px;border-radius:50%;background:currentColor}
+      .status-progress{color:#edba80}
+      .status-completed{color:#94c9a8}
+      .card-symbol{grid-column:1;grid-row:2/span 3;height:50px;display:flex;align-items:center;gap:8px;color:#b0dbe0}
+      .symbol-app span{width:19px;height:23px;border:1px solid #8bb5bc;background:#132d37}
+      .symbol-app span:nth-child(2){height:30px}
+      .symbol-app span:nth-child(3){width:8px;height:8px;border-radius:50%;background:var(--cyan)}
+      .symbol-code{font:25px var(--mono)}
+      .symbol-board span{width:10px;height:10px;border:1px solid #83aeb2;background:#183944}
+      .project-card h3{grid-column:2;margin:0 0 7px;font-size:16px;font-weight:600;letter-spacing:-.03em}
+      .project-purpose{grid-column:2;max-width:720px;margin:0 0 11px;color:#c0cbd1;font-size:12px;line-height:1.75}
+      .project-detail{grid-column:2;margin:0 0 10px;color:#c0cbd1;font-size:11px;line-height:1.7}
+      .project-detail>span:first-child{display:block;margin-bottom:3px;color:#a8b8c1;font:8px var(--mono);letter-spacing:.08em}
+      .project-links{grid-column:2;display:flex;flex-wrap:wrap;gap:8px 15px;margin:0 0 12px;padding:0;list-style:none;font-size:11px}
+      .project-links a,.project-demo a{color:var(--cyan);text-decoration:underline;text-underline-offset:3px}
+      .project-media{grid-column:2;margin:0 0 12px}
+      .project-media img{display:block;width:100%;height:auto;border:1px solid #405562}
+      .project-media figcaption{margin-top:5px;color:#b0bdc5;font-size:10px}
+      .card-footer{grid-column:2;padding-top:11px;border-top:1px solid #344653;font-size:8px}
+      .workbench{margin-top:22px;border:1px solid #344653;background:#0c1721}
+      .bench-meta{min-height:43px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 15px;border-bottom:1px solid #344653;color:#b0bdc5;font:8px var(--mono);letter-spacing:.08em}
+      .bench-canvas{position:relative;min-height:350px;overflow:hidden;background:radial-gradient(ellipse at 52% 48%,#142430 0%,#0c1721 69%)}
+      .circuit-svg{display:block;width:min(100%,900px);height:auto;margin:0 auto}
+      .trace{fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;opacity:.72;transition:opacity .2s ease,filter .2s ease,stroke-width .2s ease}
+      .trace-power{stroke:#c8a16b}.trace-java{stroke:#74b8cf}.trace-uno{stroke:#dc866d}.trace-neutral{stroke:#a1aeac;stroke-width:1.4;stroke-dasharray:4 5;opacity:.6}
+      .workbench[data-active-project=uno] .trace-uno{opacity:1;stroke-width:4;filter:drop-shadow(0 0 5px #dc866d)}
+      .led-glow{opacity:0;transition:opacity .2s ease;filter:url(#soft-glow)}
+      .workbench[data-active-project=uno] .led-uno .led-glow{opacity:.58}
+      .workbench[data-active-project=uno] .led-uno .led-light{filter:url(#soft-glow)}
+      .bench-legend{position:absolute;right:15px;bottom:12px;display:flex;gap:15px;color:#aab8c0;font:8px var(--mono);letter-spacing:.05em}
+      .legend-dot{display:inline-block;width:6px;height:6px;margin-right:6px;border-radius:50%}
+      .dot-power{background:#c8a16b}.dot-java{background:#74b8cf}.dot-uno{background:#dc866d}
+      .bench-caption{display:flex;gap:12px;margin:0;padding:12px 15px;border-top:1px solid #344653;color:#b7c4cb;font-size:10px}
+      .bench-caption span{color:var(--cyan);font:8px var(--mono);letter-spacing:.08em}
+      .skills-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+      .skill-group{min-height:170px;padding:20px;border:1px solid #344653;background:#0c1721}
+      .skill-group h3{margin-bottom:14px;font-size:13px;font-weight:600}
+      .skill-group ul{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;list-style:none}
+      .skill-group li{padding:5px 7px;border:1px solid #3a4c59;color:#c0cbd1;font-size:10px}
+      .education-section{padding-top:85px}
+      .education-list{border-top:1px solid #344653}
+      .education-item{display:grid;grid-template-columns:43px minmax(0,1fr) auto;align-items:center;gap:18px;padding:21px 4px;border-bottom:1px solid #344653}
+      .education-index{color:#aebdc5;font:9px var(--mono)}
+      .education-item h3{margin-bottom:3px;font-size:14px;font-weight:600}
+      .education-item p{margin:0;color:#b7c4cb;font-size:11px}
+      .about-band{padding:61px 0 63px;border-top:1px solid #344653;border-bottom:1px solid #344653;background:#0d1823}
+      .about-layout{display:grid;grid-template-columns:.85fr 1.15fr;align-items:start;gap:56px}
+      .experience-item{padding-bottom:23px;border-bottom:1px solid #344653}
+      .experience-label{margin-bottom:9px;color:var(--cyan);font:8px var(--mono);letter-spacing:.12em}
+      .experience-item h3{margin-bottom:7px;font-size:15px;font-weight:600}
+      .experience-item>p:last-child,.contact-block>p:last-of-type{max-width:560px;margin:0;color:#c0cbd1;font-size:12px;line-height:1.8}
+      .interests-intro{margin:21px 0 10px;color:#d5dfe3;font-size:12px}
+      .interest-list{display:flex;flex-wrap:wrap;gap:8px}
+      .interest-list span{padding:7px 9px;border:1px solid #3a4c59;color:#bcc8cf;font:8px var(--mono);letter-spacing:.06em}
+      .contact-block{padding-top:23px}
+      .contact-block h3{margin-bottom:7px;font-size:15px;font-weight:600}
+      .contact-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;font-size:11px}
+      .contact-links a{color:var(--cyan);text-decoration:underline;text-underline-offset:3px}
+      .site-footer{display:flex;align-items:center;justify-content:flex-end;padding-top:22px;padding-bottom:22px}
+      .footer-meta{width:100%;display:flex;gap:25px;align-items:center;justify-content:space-between;color:#aab8c0;font:8px var(--mono);letter-spacing:.07em}
+      @media(max-width:900px){.site-header{min-height:88px;display:grid;grid-template-columns:1fr auto;gap:9px 15px;padding:12px 24px}.header-actions{grid-column:2;grid-row:1}.primary-nav{grid-column:1/-1;grid-row:2;justify-content:flex-start;gap:16px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}.primary-nav::-webkit-scrollbar{display:none}.hero{min-height:0;grid-template-columns:1fr;gap:34px;padding-top:65px;padding-bottom:70px}.hero-readout{height:260px}.hero-coordinate{bottom:25px}.section-heading{align-items:flex-start;flex-direction:column;gap:12px}.section-summary{width:min(100%,500px)}.skills-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.about-layout{grid-template-columns:1fr;gap:24px}}
+      @media(max-width:600px){.section-shell{width:calc(100% - 36px)}.site-header{padding:11px 18px}.primary-nav{gap:14px}.primary-nav a{font-size:10px}.wordmark{font-size:9px}.header-index{font-size:9px}.hero{padding-top:52px;padding-bottom:66px}h1{font-size:clamp(52px,13vw,74px)}.content-section{padding-top:64px}.project-card{grid-template-columns:1fr;row-gap:0;padding:18px}.card-symbol{grid-column:1;grid-row:auto;height:42px;margin:0 0 8px}.project-card h3,.project-purpose,.project-detail,.project-links,.project-media,.card-footer{grid-column:1}.card-topline{grid-column:1}.skills-grid{grid-template-columns:1fr}.skill-group{min-height:0}.education-item{grid-template-columns:25px minmax(0,1fr);gap:10px}.education-item>.status{grid-column:2}.bench-meta{font-size:7px}.bench-canvas{min-height:0;padding:22px 0 46px}.circuit-svg{width:640px;max-width:none;position:relative;left:50%;transform:translateX(-50%)}.bench-legend{right:8px;bottom:9px;gap:9px;font-size:7px}.bench-caption{font-size:9px}.about-band{padding:46px 0}.footer-meta{font-size:7px}}
+      @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
+
+      /* Enchanted night garden restyle */
+      :root {
+        --bg: #100d24;
+        --panel: #1a1531;
+        --line: #514467;
+        --muted: #c3b9d2;
+        --text: #f7f0ec;
+        --cyan: #86e7ed;
+        --plum: #a47bd2;
+        --orchid: #e4a0d5;
+        --ivory: #f7f0ec;
+        --sans: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+        --body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      }
+      html { scroll-padding-top: 24px; }
+      body {
+        position: relative;
+        isolation: isolate;
+        background:
+          radial-gradient(ellipse at 9% 8%, #50326745, transparent 31rem),
+          radial-gradient(ellipse at 91% 36%, #173d5640, transparent 36rem),
+          radial-gradient(ellipse at 45% 83%, #49234b36, transparent 34rem),
+          var(--bg);
+        color: var(--ivory);
+        font-family: var(--body);
+      }
+      a:hover { color: #f1b6e5; }
+      .night-sky {
+        position: fixed;
+        z-index: 0;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse at 0% 47%, #68d7ef12 0, transparent 30%),
+          radial-gradient(ellipse at 100% 67%, #a365d814 0, transparent 33%);
+      }
+      .sky-star {
+        position: absolute;
+        width: var(--star-size, 2px);
+        height: var(--star-size, 2px);
+        border-radius: 50%;
+        background: #f8e8ff;
+        opacity: .35;
+        box-shadow: 0 0 6px #e7caff8a;
+        animation: star-shimmer var(--star-duration, 7s) ease-in-out var(--star-delay, 0s) infinite alternate;
+      }
+      @keyframes star-shimmer { to { opacity: .78; box-shadow: 0 0 9px #edb9eead; } }
+      .cursor-sparkles {
+        position: fixed;
+        z-index: 30;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .cursor-sparkle {
+        position: absolute;
+        width: var(--sparkle-size, 7px);
+        height: var(--sparkle-size, 7px);
+        opacity: 0;
+        color: #f2b6e6;
+        transform: translate(-50%, -50%) rotate(45deg);
+        background: linear-gradient(90deg, transparent 38%, currentColor 50%, transparent 62%), linear-gradient(0deg, transparent 38%, currentColor 50%, transparent 62%);
+        filter: drop-shadow(0 0 3px #dca5ef);
+      }
+      .cursor-sparkle.is-visible { animation: cursor-drift 720ms ease-out forwards; }
+      @keyframes cursor-drift {
+        0% { opacity: .7; transform: translate(-50%, -50%) rotate(0) scale(.7); }
+        100% { opacity: 0; transform: translate(calc(-50% + var(--drift-x)), calc(-50% + var(--drift-y))) rotate(60deg) scale(.15); }
+      }
+      .garden-definitions { position: absolute; width: 0; height: 0; overflow: hidden; }
+      .site-header, main, .site-footer { position: relative; z-index: 1; }
+      .skip-link { z-index: 50; border-radius: 999px; }
+      .site-header {
+        min-height: 78px;
+        border: 0;
+        border-bottom: 1px solid #dcbce21f;
+        background: linear-gradient(180deg, #17122bdc, #17122b88);
+        backdrop-filter: blur(16px);
+      }
+      .wordmark { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: .11em; }
+      .wordmark-mark { border-color: #b18acb88; border-radius: 50%; color: #f0c4e9; font-family: var(--sans); }
+      .primary-nav { gap: clamp(12px, 2vw, 23px); }
+      .primary-nav a, .header-index { color: #e2d7e9; font-size: 12px; }
+      .header-index { font-family: var(--body); letter-spacing: .04em; }
+      .status-dot { background: #e9b2e0; box-shadow: 0 0 11px #eda6ee9c; }
+      .hero {
+        min-height: 600px;
+        grid-template-columns: minmax(0, 1fr) minmax(0, .75fr);
+        gap: 0;
+        padding-top: 74px;
+        padding-bottom: 88px;
+      }
+      .hero-copy { position: relative; z-index: 2; max-width: 610px; }
+      .hero-readout { display: none; }
+      .hero-flora {
+        position: absolute;
+        z-index: 1;
+        top: 32px;
+        right: -84px;
+        width: min(58%, 620px);
+        height: auto;
+        overflow: visible;
+        opacity: .88;
+        pointer-events: none;
+        filter: drop-shadow(0 0 23px #a96ed733);
+      }
+      .garden-stem { fill: none; stroke: #79dbe0; stroke-opacity: .68; stroke-width: 2; }
+      .garden-leaf { fill: #6388bd2e; stroke: #83e2e1; stroke-opacity: .72; stroke-width: 1.5; }
+      .flower-petals { transform-box: fill-box; transform-origin: center; animation: petal-breathe 9s ease-in-out infinite alternate; }
+      .fairy-light { fill: #fff3c5; filter: drop-shadow(0 0 6px #ffe8a7) drop-shadow(0 0 13px #eaacef); animation: light-float 5.4s ease-in-out infinite alternate; }
+      .fairy-light-two { animation-delay: -2.1s; }
+      .fairy-light-three { animation-delay: -3.7s; }
+      @keyframes petal-breathe { to { opacity: .82; transform: scale(.97) rotate(1deg); } }
+      @keyframes light-float { to { opacity: .48; transform: translateY(-8px); } }
+      h1, h2 { font-family: var(--sans); font-weight: 500; }
+      h1 { font-size: clamp(60px, 7.4vw, 94px); letter-spacing: -.065em; line-height: .99; }
+      h1 span { color: #e6abd9; }
+      h2 { color: #f3e9f0; font-size: clamp(31px, 4vw, 43px); letter-spacing: -.035em; }
+      h3 { color: #f5eaf2; font-family: var(--sans); font-weight: 500; }
+      .eyebrow, .experience-label {
+        color: #efb5e3;
+        font: 500 11px/1.5 var(--body);
+        letter-spacing: .09em;
+      }
+      .eyebrow-line { background: #e8a9df; }
+      .hero-intro { color: #eee4ed; font-size: 17px; }
+      .intro-details { color: #d2c5dc; font: 11px/1.6 var(--body); letter-spacing: .04em; }
+      .text-link {
+        gap: 12px;
+        padding: 10px 17px;
+        border: 1px solid #ddaee266;
+        border-radius: 999px;
+        background: #301f4055;
+        color: #fbecf5;
+      }
+      .text-link:hover { border-color: #e7aede; background: #57365a80; color: white; }
+      .hero-coordinate { color: #c6b6d4; font: 10px var(--body); letter-spacing: .06em; }
+      .content-section { position: relative; padding-top: 88px; padding-bottom: 34px; }
+      .section-heading, .filter-row, .timeline, .skills-grid, .education-list { position: relative; z-index: 1; }
+      .section-heading .eyebrow { color: #e7a8dc; }
+      .section-summary { color: #d6cbdc; font-size: 14px; }
+      .filter-row { gap: 9px; margin: 30px 0 25px; }
+      .filter-button {
+        gap: 9px;
+        padding: 10px 16px;
+        border: 1px solid #b495c444;
+        border-radius: 999px;
+        background: #281e3c78;
+        color: #e8ddeb;
+        font-size: 12px;
+        transition: background .2s ease, border-color .2s ease, transform .2s ease;
+      }
+      .filter-button span { color: #d0bddb; font: 10px var(--body); }
+      .filter-button:hover, .filter-button.is-selected {
+        border-color: #df9dd4a8;
+        background: #72446c80;
+        color: white;
+      }
+      .filter-button:hover { transform: translateY(-1px); }
+      .timeline { padding-left: 25px; }
+      .timeline:before {
+        left: 7px;
+        width: 2px;
+        background: linear-gradient(180deg, #d295dd88, #75d9df55, #b77cc577);
+        mask-image: linear-gradient(transparent, #000 8%, #000 92%, transparent);
+      }
+      .project-grid { gap: 16px; }
+      .project-card {
+        grid-template-columns: minmax(130px, .27fr) minmax(0, 1fr);
+        column-gap: 24px;
+        padding: 23px 26px;
+        border: 1px solid #e2c5ed24;
+        border-radius: 22px;
+        background: linear-gradient(125deg, #241c397a, #17152d9c);
+        box-shadow: 0 12px 42px #08061426, inset 0 1px #fff1;
+        backdrop-filter: blur(8px);
+        transition: border-color .25s ease, background .25s ease, transform .25s ease, box-shadow .25s ease;
+      }
+      .timeline .project-card:before {
+        top: 29px;
+        left: -25px;
+        width: 11px;
+        height: 11px;
+        border: 1px solid #f2bce8;
+        background: #1e1733;
+        box-shadow: 0 0 12px #e4a7e4ad;
+      }
+      .project-card:hover, .project-card:focus-visible, .project-card[data-active=true] {
+        transform: translateY(-2px);
+        border-color: #e8afe06b;
+        background: linear-gradient(125deg, #372646b8, #1b1a38dc);
+        box-shadow: 0 16px 46px #09061745, 0 0 24px #d38be31a, inset 0 1px #fff2;
+      }
+      .project-card:focus-visible, .filter-button:focus-visible, a:focus-visible { outline-color: #a2f4f1; }
+      .card-topline { margin-bottom: 14px; }
+      .card-index, .card-footer { color: #d3c6dc; font: 11px var(--body); letter-spacing: .04em; }
+      .status { color: #f1ca8c; font: 11px var(--body); }
+      .status-progress { color: #f6bd9a; }
+      .status-completed { color: #a6e2c1; }
+      .card-symbol { color: #a6e9ed; }
+      .symbol-app span { border-color: #a4dce0; border-radius: 5px; background: #352748; }
+      .symbol-code { color: #e7b3e0; }
+      .symbol-board span { border-color: #9aedef; border-radius: 3px; background: #2b3150; }
+      .project-card h3 { font-size: 19px; }
+      .project-purpose { max-width: 760px; color: #eee5ef; font-size: 14px; line-height: 1.8; }
+      .project-detail { color: #e5d9e8; font-size: 13px; }
+      .project-detail > span:first-child { color: #e3b2df; font: 600 10px var(--body); letter-spacing: .06em; }
+      .project-links { font-size: 13px; }
+      .project-links a, .project-demo a, .contact-links a { color: #9eebef; }
+      .project-media img { border-color: #bc91cc55; border-radius: 12px; }
+      .project-media figcaption { color: #d6c8dd; }
+      .globe-feature { grid-column: 2; min-width: 0; margin: 4px 0 16px; }
+      .globe-feature[hidden] { display: none; }
+      .globe-visual {
+        position: relative;
+        min-height: 290px;
+        overflow: hidden;
+        border: 1px solid #d7a9dc52;
+        border-radius: 20px;
+        background: radial-gradient(ellipse at 50% 48%, #522d685c 0, #211935bd 48%, #15132b 100%);
+        box-shadow: inset 0 1px #fff2, 0 12px 38px #09061730;
+        isolation: isolate;
+      }
+      .globe-visual::before {
+        position: absolute;
+        inset: 14% 24%;
+        z-index: 0;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ffc67c38 0, #ec8dd029 35%, #8a63d21c 58%, transparent 75%);
+        filter: blur(24px);
+        content: "";
+        pointer-events: none;
+      }
+      .globe-viewer {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: 100%;
+        height: min(48vw, 390px);
+        min-height: 290px;
+        --poster-color: transparent;
+        --progress-bar-color: #f1b6e5;
+        --progress-bar-height: 2px;
+        touch-action: pan-y;
+        background: transparent;
+      }
+      .globe-pin {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 5px;
+        border: 0;
+        border-radius: 999px;
+        background: #160f2cdd;
+        color: #fff6f2;
+        font: 600 11px var(--body);
+        cursor: pointer;
+        touch-action: manipulation;
+      }
+      .globe-pin:focus-visible { outline: 2px solid #a2f4f1; outline-offset: 3px; }
+      .globe-pin-dot { width: 9px; height: 9px; flex: none; border-radius: 50%; background: #ff4f65; box-shadow: 0 0 9px #ff5267b5; }
+      .globe-pin-label {
+        position: absolute;
+        bottom: calc(100% + 7px);
+        left: 50%;
+        display: none;
+        width: max-content;
+        max-width: min(260px, calc(100vw - 80px));
+        padding: 6px 9px;
+        transform: translateX(-50%);
+        border: 1px solid #d7a9dc70;
+        border-radius: 10px;
+        background: #160f2cf2;
+        box-shadow: 0 5px 18px #09061780;
+        overflow-wrap: anywhere;
+        white-space: normal;
+      }
+      .globe-pin:hover .globe-pin-label, .globe-pin:focus-visible .globe-pin-label, .globe-pin[aria-pressed="true"] .globe-pin-label { display: block; }
+      .globe-state { margin: 0; padding: 8px 14px; color: #e8ddeb; font-size: 12px; }
+      .globe-state[data-state="error"] { color: #ffc0ca; }
+      .globe-copy { margin: 10px 0 0; color: #e6dce9; font-size: 12px; line-height: 1.7; }
+      .globe-pin-list { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 8px 0 0; padding-left: 19px; color: #e6dce9; font-size: 12px; }
+      .card-footer { border-top: 1px solid #e6c6e31c; font-size: 10px; }
+      .card-footer [data-field=distinction] { color: #f1bce5; font-size: 10px; }
+      .embedded-section { isolation: isolate; }
+      .workbench {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        margin-top: 20px;
+        border: 1px solid #d7a9dc52;
+        border-radius: 24px;
+        background: radial-gradient(ellipse at 54% 44%, #312343 0, #19172f 62%, #13172c 100%);
+        box-shadow: 0 18px 55px #08061442, inset 0 1px #fff2;
+      }
+      .bench-meta {
+        min-height: 49px;
+        padding-inline: 19px;
+        border-bottom: 1px solid #e1c2e21f;
+        color: #e0d4e4;
+        font: 11px var(--body);
+        letter-spacing: .04em;
+      }
+      .bench-canvas { min-height: 0; background: radial-gradient(ellipse at 50% 52%, #28354c9c 0, #17192e 67%, #17152b 100%); }
+      .circuit-svg { width: min(100%, 900px); height: auto; }
+      .breadboard text { fill: #35414a !important; }
+      .annotation text { fill: #f3e9f5; font-weight: 600; letter-spacing: .6px; }
+      .annotation path { stroke: #d7c0e4; stroke-width: 1.4; }
+      .trace-neutral { stroke: #bac8e1; }
+      .workbench[data-active-project=uno] .trace-uno { filter: drop-shadow(0 0 6px #ff9fe1); }
+      .workbench[data-active-project=uno] .led-uno .led-glow { opacity: .72; }
+      .bench-legend { color: #e3d7e8; font: 10px var(--body); letter-spacing: .02em; }
+      .bench-caption { border-top: 1px solid #e1c2e21f; color: #e9dfea; font-size: 12px; }
+      .bench-caption span { color: #a1edf0; font: 600 10px var(--body); letter-spacing: .05em; }
+      .skills-grid { gap: 16px; }
+      .skill-group {
+        min-height: 0;
+        padding: 23px;
+        border: 1px solid #e2c5ed24;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #241c397a, #17152d9c);
+        box-shadow: inset 0 1px #fff1;
+      }
+      .skill-group h3 { margin-bottom: 16px; font-size: 18px; }
+      .skill-group li { padding: 6px 10px; border: 1px solid #d6b4df2e; border-radius: 999px; color: #eee4ef; font-size: 12px; }
+      .education-list { border: 0; }
+      .education-item { border-bottom: 1px solid #ddc4e322; }
+      .education-item:first-child { border-top: 1px solid #ddc4e322; }
+      .education-index { color: #ddb3e1; font: 12px var(--sans); }
+      .education-item h3 { font-size: 18px; }
+      .education-item p { color: #d8ccdf; font-size: 14px; }
+      .about-band {
+        position: relative;
+        overflow: hidden;
+        border: 0;
+        background: linear-gradient(105deg, #1e1836b0, #261832b3 70%, #15303940);
+      }
+      .content-section { position: relative; }
+      .about-layout { position: relative; z-index: 1; }
+      .experience-item { border-bottom-color: #e1c4e329; }
+      .experience-item h3, .contact-block h3 { font-size: 20px; }
+      .experience-item > p:last-child, .contact-block > p:last-of-type { color: #eee5ef; font-size: 14px; }
+      .experience-label { font: 600 11px var(--body); letter-spacing: .06em; }
+      .interests-intro { color: #f1e7ef; font-size: 14px; }
+      .interest-list span { padding: 8px 12px; border: 1px solid #dcb7e333; border-radius: 999px; color: #f1e8f1; font: 11px var(--body); letter-spacing: .02em; }
+      .contact-block { scroll-margin-top: 24px; }
+      .contact-links { gap: 10px 20px; font-size: 13px; }
+      .footer-meta { color: #d4c6db; font: 10px var(--body); letter-spacing: .04em; }
+      .section-flora {
+        position: absolute;
+        z-index: 0;
+        width: 145px;
+        height: 145px;
+        right: -21px;
+        bottom: -17px;
+        opacity: .25;
+        pointer-events: none;
+        filter: drop-shadow(0 0 16px #c276e033);
+      }
+      .section-flora-left { right: auto; left: -50px; top: 20px; bottom: auto; width: 120px; opacity: .16; }
+      .about-flora { position: absolute; top: -64px; right: -88px; width: 290px; opacity: .2; pointer-events: none; }
+      .water-mist {
+        position: absolute;
+        z-index: 0;
+        left: -4%;
+        right: -4%;
+        height: 120px;
+        opacity: .4;
+        pointer-events: none;
+        background: radial-gradient(ellipse at 8% 70%, #61cfed21, transparent 28%), radial-gradient(ellipse at 91% 33%, #a585e51c, transparent 33%);
+        filter: blur(22px);
+      }
+      .water-mist-top { top: -18px; }
+      .water-mist-bottom { bottom: -35px; transform: rotate(180deg); }
+      .is-paused .sky-star, .is-paused .flower-petals, .is-paused .fairy-light, .is-paused .cursor-sparkle { animation-play-state: paused !important; }
+      html { overflow-x: clip; }
+      body { overflow-x: clip; }
+      @media (hover: hover) and (pointer: fine) {
+        body { cursor: auto; }
+      }
+      @media (max-width: 760px) {
+        .section-shell { width: min(100% - 40px, 620px); }
+        .site-header { padding: 12px 22px; }
+        .hero { grid-template-columns: 1fr; min-height: 570px; padding-top: 68px; }
+        .hero-copy { max-width: 520px; }
+        .hero-flora { top: 114px; right: -90px; width: 69%; opacity: .63; }
+        .hero-coordinate { bottom: 24px; }
+        .project-card { grid-template-columns: minmax(0, 1fr); column-gap: 20px; padding: 21px; }
+        .project-card h3, .project-purpose, .project-detail, .project-links, .project-media, .card-footer { grid-column: 1; }
+          .globe-feature { grid-column: 1; }
+        .card-symbol { grid-column: 1; grid-row: auto; }
+        .bench-canvas { padding: 16px 8px 43px; }
+        .circuit-svg { width: 100%; max-width: 100%; position: static; left: auto; transform: none; }
+        .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .section-flora { width: 112px; height: 112px; }
+      }
+      @media (max-width: 420px) {
+        .section-shell { width: calc(100% - 36px); }
+        .site-header { padding: 11px 18px; }
+        .hero { min-height: 0; padding-top: 54px; padding-bottom: 78px; }
+        .hero-flora { top: 112px; right: -72px; width: 82%; opacity: .46; }
+        .hero-intro { position: relative; z-index: 1; font-size: 15px; }
+        .intro-details { position: relative; z-index: 1; }
+        .hero-coordinate { bottom: 22px; }
+        .content-section { padding-top: 68px; }
+        .section-heading { margin-bottom: 22px; }
+        .filter-row { gap: 7px; }
+        .filter-button { gap: 7px; padding: 9px 12px; font-size: 11px; }
+        .timeline { padding-left: 20px; }
+        .timeline:before { left: 4px; }
+        .timeline .project-card:before { left: -21px; }
+        .project-card { padding: 17px; border-radius: 18px; }
+        .bench-meta { flex-wrap: wrap; min-height: 44px; padding: 9px 13px; font-size: 9px; }
+        .bench-meta span:last-child { display: none; }
+        .bench-canvas { padding: 12px 3px 40px; }
+        .circuit-svg { display: block; width: 100%; max-width: 100%; height: auto; }
+        .bench-legend { right: 7px; bottom: 8px; font-size: 8px; }
+        .bench-legend span:last-child { display: none; }
+        .bench-caption { align-items: flex-start; gap: 8px; padding: 11px 13px; font-size: 11px; }
+        .skills-grid { grid-template-columns: 1fr; }
+        .skill-group { padding: 19px; }
+        .education-item { grid-template-columns: 25px minmax(0, 1fr); gap: 10px; }
+        .about-band { padding: 45px 0; }
+        .about-flora { right: -110px; opacity: .13; }
+        .footer-meta { gap: 10px; align-items: flex-start; font-size: 9px; }
+        .section-flora { width: 80px; height: 80px; opacity: .18; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .sky-star, .flower-petals, .fairy-light, .cursor-sparkle { animation: none !important; }
+        .globe-pin-label { transition: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="night-sky" aria-hidden="true"></div>
+    <div class="cursor-sparkles" aria-hidden="true"></div>
+    <svg class="garden-definitions" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="petal-gradient" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="#8e65cf"/>
+          <stop offset=".48" stop-color="#d57acb"/>
+          <stop offset="1" stop-color="#f3a5d8"/>
+        </linearGradient>
+        <linearGradient id="petal-light" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stop-color="#8f68d7"/>
+          <stop offset="1" stop-color="#f0b3e8"/>
+        </linearGradient>
+        <radialGradient id="flower-core">
+          <stop stop-color="#fff1c7"/>
+          <stop offset=".25" stop-color="#f5c6f0"/>
+          <stop offset="1" stop-color="#bd81eb" stop-opacity=".15"/>
+        </radialGradient>
+        <filter id="flower-glow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <symbol id="garden-flower" viewBox="-100 -110 200 220">
+          <g class="flower-petals" stroke="#f3b6ed" stroke-opacity=".6" stroke-width="1.2">
+            <path d="M0 4C-18-11-34-48-15-82C-7-96 7-96 15-82C34-48 18-11 0 4Z" fill="url(#petal-light)"/>
+            <path d="M0 4C-18-11-34-48-15-82C-7-96 7-96 15-82C34-48 18-11 0 4Z" fill="url(#petal-gradient)" transform="rotate(60)"/>
+            <path d="M0 4C-18-11-34-48-15-82C-7-96 7-96 15-82C34-48 18-11 0 4Z" fill="url(#petal-light)" transform="rotate(120)"/>
+            <path d="M0 4C-18-11-34-48-15-82C-7-96 7-96 15-82C34-48 18-11 0 4Z" fill="url(#petal-gradient)" transform="rotate(180)"/>
+            <path d="M0 4C-18-11-34-48-15-82C-7-96 7-96 15-82C34-48 18-11 0 4Z" fill="url(#petal-light)" transform="rotate(240)"/>
+            <path d="M0 4C-18-11-34-48-15-82C-7-96 7-96 15-82C34-48 18-11 0 4Z" fill="url(#petal-gradient)" transform="rotate(300)"/>
+          </g>
+          <g fill="none" stroke="#8ef3ee" stroke-opacity=".77" stroke-width="1.4" stroke-linecap="round">
+            <path d="M0 0C-3-24-4-55 0-84M0-20L-10-33M-1-35L8-49M0-53L-8-65"/>
+            <path d="M0 0C-23-8-48-23-72-48M-18-9L-30-8M-37-20L-41-32"/>
+            <path d="M0 0C23-8 48-23 72-48M18-9L30-8M37-20L41-32"/>
+            <path d="M0 0C-23 7-49 22-72 48M-18 9L-30 8M-37 19L-41 31"/>
+            <path d="M0 0C23 7 49 22 72 48M18 9L30 8M37 19L41 31"/>
+            <path d="M0 0C4 24 4 55 0 84M0 20L10 33M1 36L-8 49M0 54L8 65"/>
+          </g>
+          <circle r="12" fill="url(#flower-core)" filter="url(#flower-glow)"/>
+          <circle r="3.5" fill="#fff2d8"/>
+        </symbol>
+      </defs>
+    </svg>
+    <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu</a>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Accueil du portfolio" data-i18n-aria="homeLabel">
+        <span class="wordmark-mark" aria-hidden="true">AF</span>
+        <span>AURÉLIE FIDELIA</span>
+      </a>
+      <nav class="primary-nav" aria-label="Navigation principale" data-i18n-aria="navLabel">
+        <a href="#projects" data-i18n="navProjects">Projets</a>
+        <a href="#embedded" data-i18n="navEmbedded">Embarqué</a>
+        <a href="#projects" data-nav-filter="collaborations" data-i18n="navCollaborations">Collaborations</a>
+        <a href="#skills" data-i18n="navSkills">Compétences</a>
+        <a href="#education" data-i18n="navEducation">Études</a>
+        <a href="#about" data-i18n="navAbout">À propos</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-index" href="#contact"><span class="status-dot"></span> <span data-i18n="navContact">CONTACT</span></a>
+        <button class="language-toggle" id="language-toggle" type="button" aria-label="Passer à l’anglais">EN</button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero section-shell" id="top" aria-labelledby="intro-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> <span data-i18n="heroEyebrow">GÉNIE LOGICIEL · ÉTS</span></p>
+          <h1 id="intro-title">Aurélie<br><span>Fidelia.</span></h1>
+          <p class="hero-intro" data-i18n="heroIntro">Je suis étudiante en génie logiciel à l’ÉTS et j’explore le logiciel, les systèmes embarqués et les projets collaboratifs. J’aime créer des outils pratiques et comprendre les liens entre le logiciel et les systèmes physiques.</p>
+          <div class="intro-details"><span data-i18n="location">GRAND MONTRÉAL, QUÉBEC, CANADA</span><span>FRANÇAIS · ENGLISH</span></div>
+          <a class="text-link" href="#projects"><span data-i18n="exploreProjects">Découvrir mes projets</span> <span aria-hidden="true">↓</span></a>
+        </div>
+        <aside class="hero-readout" aria-label="Domaines explorés" data-i18n-aria="areasLabel">
+          <div class="readout-top"><span data-i18n="fields">DOMAINES D’EXPLORATION</span><span>ÉTS</span></div>
+          <div class="readout-grid" aria-hidden="true"></div>
+          <div class="readout-orbit" aria-hidden="true"><span></span><i></i></div>
+          <div class="readout-bottom"><span data-i18n="software">LOGICIEL</span><span data-i18n="embedded">SYSTÈMES EMBARQUÉS</span><span data-i18n="collaborations">COLLABORATION</span></div>
+        </aside>
+        <svg class="floral-art hero-flora" viewBox="0 0 560 430" aria-hidden="true" focusable="false">
+          <path class="garden-stem" d="M302 430C290 342 330 284 299 224C272 173 324 110 326 34M302 335C258 289 231 282 201 283M312 284C365 253 392 246 423 253M298 218C257 181 245 154 243 126M322 146C363 119 385 91 396 56"/>
+          <path class="garden-leaf" d="M285 322C238 278 213 285 200 283C221 316 251 331 285 322M321 283C358 244 394 244 423 253C398 283 362 295 321 283M290 198C254 155 248 138 243 126C277 143 294 166 290 198M339 132C373 94 389 74 396 56C405 91 383 122 339 132"/>
+          <use href="#garden-flower" x="238" y="5" width="178" height="178"/>
+          <use href="#garden-flower" x="116" y="208" width="112" height="112" opacity=".82"/>
+          <use href="#garden-flower" x="384" y="185" width="124" height="124" opacity=".86"/>
+          <use href="#garden-flower" x="347" y="20" width="78" height="78" opacity=".6"/>
+          <circle class="fairy-light" cx="200" cy="168" r="3"/>
+          <circle class="fairy-light fairy-light-two" cx="431" cy="153" r="2.5"/>
+          <circle class="fairy-light fairy-light-three" cx="371" cy="348" r="2"/>
+        </svg>
+        <div class="hero-coordinate" aria-hidden="true">AURÉLIE FIDELIA / GREATER MONTRÉAL</div>
+      </section>
+
+      <section class="section-shell content-section" id="projects" aria-labelledby="projects-title">
+        <svg class="section-flora section-flora-left" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><use href="#garden-flower" x="0" y="0" width="200" height="200"/></svg>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" data-i18n="projectsEyebrow">01 — PROJETS</p>
+            <h2 id="projects-title" data-i18n="projectsTitle">Projets et expériences.</h2>
+          </div>
+          <p class="section-summary" data-i18n="projectsSummary">Un aperçu filtrable de mes projets logiciels, de mon apprentissage des systèmes embarqués, de mes collaborations et de mon expérience professionnelle.</p>
+        </div>
+        <div class="filter-row" id="project-filters" role="group" aria-label="Filtrer les projets et expériences" data-i18n-aria="filtersLabel"></div>
+        <div class="project-grid timeline" id="project-timeline" aria-live="polite"></div>
+      </section>
+      <template id="project-card-template">
+        <article class="project-card">
+          <div class="card-topline"><span class="card-index" data-field="index"></span><span class="card-statuses" data-field="statuses"></span></div>
+          <div class="card-symbol" data-field="icon" aria-hidden="true"></div>
+          <figure class="project-media" data-field="screenshot" hidden><img><figcaption></figcaption></figure>
+          <h3 data-field="title"></h3>
+          <p class="project-purpose" data-field="purpose" hidden></p>
+          <div class="globe-feature" data-field="globe-feature" hidden>
+            <p class="globe-state" data-field="globe-state" role="status" data-state="loading">Chargement du globe 3D…</p>
+            <div class="globe-visual">
+              <model-viewer
+                class="globe-viewer"
+                data-field="globe-viewer"
+                src="3d/earth.glb"
+                alt="Globe 3D avec des continents lumineux, un soleil intérieur et trois épingles rouges."
+                aria-describedby="globe-text-alternative"
+                camera-controls
+                auto-rotate
+                rotation-per-second="3deg"
+                camera-orbit="0deg 72deg 8.5m"
+                camera-target="0m 1.5m 0m"
+                exposure="1"
+                loading="lazy"
+                reveal="auto"
+                touch-action="pan-y"
+                data-i18n-alt="globeAlt">
+                <button class="globe-pin" slot="hotspot-montreal" data-position="0.658m 2.368m 2.232m" data-normal="0.198 0.713 0.672" type="button" aria-pressed="false" aria-label="Montréal, Canada" data-i18n-aria="pinMontrealAria">
+                  <span class="globe-pin-dot" aria-hidden="true"></span><span class="globe-pin-label" data-i18n="pinMontreal">Montréal, Canada</span>
+                </button>
+                <button class="globe-pin" slot="hotspot-usa" data-position="-0.448m 2.089m 2.541m" data-normal="-0.135 0.629 0.766" type="button" aria-pressed="false" aria-label="USA — Space Apps Universal Event (symbolic association)" data-i18n-aria="pinUsaAria">
+                  <span class="globe-pin-dot" aria-hidden="true"></span><span class="globe-pin-label" data-i18n="pinUsa">USA — Space Apps Universal Event (symbolic association)</span>
+                </button>
+                <button class="globe-pin" slot="hotspot-pakistan" data-position="1.030m 1.660m -2.684m" data-normal="0.310 0.500 -0.809" type="button" aria-pressed="false" aria-label="Pakistan — StudentCorner" data-i18n-aria="pinPakistanAria">
+                  <span class="globe-pin-dot" aria-hidden="true"></span><span class="globe-pin-label" data-i18n="pinPakistan">Pakistan — StudentCorner</span>
+                </button>
+              </model-viewer>
+            </div>
+            <p class="globe-copy" id="globe-text-alternative" data-i18n="globeTextAlternative">Globe interactif avec des continents lumineux, un soleil intérieur et des épingles rouges. Les épingles indiquent Montréal, Canada; Space Apps Universal Event aux États-Unis (association symbolique); et StudentCorner au Pakistan.</p>
+            <ul class="globe-pin-list">
+              <li data-i18n="pinMontreal">Montréal, Canada</li>
+              <li data-i18n="pinUsa">USA — Space Apps Universal Event (association symbolique)</li>
+              <li data-i18n="pinPakistan">Pakistan — StudentCorner</li>
+            </ul>
+          </div>
+          <p class="project-detail project-contribution" data-field="contribution" hidden><span data-i18n="contributionLabel">MA CONTRIBUTION</span><span data-value></span></p>
+          <p class="project-detail project-planned" data-field="planned" hidden><span data-i18n="plannedLabel">À FAIRE</span><span data-value></span></p>
+          <p class="project-detail project-technologies" data-field="technologies" hidden><span data-i18n="technologiesLabel">TECHNOLOGIES</span><span data-field="technology-list"></span></p>
+          <p class="project-detail project-location" data-field="location" hidden><span data-i18n="locationLabel">LIEU</span><span data-field="location-value"></span></p>
+          <p class="project-detail project-demo" data-field="demo" hidden></p>
+          <ul class="project-links" data-field="links" hidden></ul>
+          <div class="card-footer"><span data-field="category-label"></span><span data-field="distinction"></span></div>
+        </article>
+      </template>
+
+      <section class="section-shell content-section embedded-section" id="embedded" aria-labelledby="embedded-title">
+        <div class="water-mist water-mist-top" aria-hidden="true"></div>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" data-i18n="embeddedEyebrow">02 — SYSTÈMES EMBARQUÉS</p>
+            <h2 id="embedded-title" data-i18n="embeddedTitle">Apprendre en expérimentant.</h2>
+          </div>
+          <p class="section-summary" data-i18n="embeddedSummary">J’ai récemment acheté une trousse ELEGOO UNO R4 WiFi et j’apprends à utiliser Arduino, une planche d’essai et des DEL.</p>
+        </div>
+        <div class="workbench" data-active-project="">
+          <div class="bench-meta"><span data-i18n="benchTitle">ATELIER / 001</span><span data-i18n="boardMeta">UNO R4 WIFI · APPRENTISSAGE</span><span data-i18n="schematic">VUE SCHÉMATIQUE</span></div>
+          <div class="bench-canvas">
+            <svg class="circuit-svg" viewBox="0 0 1000 460" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="bench-title bench-description">
+              <title id="bench-title" data-i18n="benchSvgTitle">Banc d’essai électronique stylisé</title>
+              <desc id="bench-description" data-i18n="benchSvgDescription">Une carte inspirée de la R4 WiFi reliée à une planche d’essai avec des fils de connexion, des DEL et une matrice à DEL discrète. Placez le focus sur la carte de projet des systèmes embarqués ou activez-la pour allumer la DEL et le fil correspondants.</desc>
+              <defs>
+                <pattern id="board-grid" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#536474" opacity=".55"/></pattern>
+                <pattern id="bread-grid" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="2.2" fill="#26384a"/><circle cx="9" cy="9" r=".7" fill="#81909a"/></pattern>
+                <linearGradient id="pcb" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#174c54"/><stop offset="1" stop-color="#0d303d"/></linearGradient>
+                <filter id="soft-glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <path class="trace trace-uno" data-wire="uno" d="M354 250 H433 Q461 250 461 282 V309 H502"/>
+              <path class="trace trace-neutral" d="M354 274 H449 V329 H704"/>
+              <g class="micro-board">
+                <rect x="115" y="124" width="252" height="224" rx="18" fill="url(#pcb)" stroke="#4a8990" stroke-width="1.5"/>
+                <rect x="126" y="135" width="230" height="202" rx="12" fill="url(#board-grid)" opacity=".65"/>
+                <circle cx="136" cy="145" r="5" fill="#09121d" stroke="#7b9899"/><circle cx="346" cy="145" r="5" fill="#09121d" stroke="#7b9899"/>
+                <circle cx="136" cy="327" r="5" fill="#09121d" stroke="#7b9899"/><circle cx="346" cy="327" r="5" fill="#09121d" stroke="#7b9899"/>
+                <rect x="185" y="174" width="113" height="96" rx="6" fill="#101c28" stroke="#63717c"/>
+                <path d="M194 166v8m12-8v8m12-8v8m12-8v8m12-8v8m12-8v8m12-8v8m12-8v8M194 270v8m12-8v8m12-8v8m12-8v8m12-8v8m12-8v8m12-8v8m12-8v8" stroke="#b7aa84" stroke-width="2"/>
+                <rect x="207" y="192" width="69" height="59" rx="3" fill="#182b37" stroke="#314e5b"/>
+                <text x="241" y="216" text-anchor="middle" fill="#a9c3c7" font-size="9" font-family="monospace">UNO R4</text>
+                <text x="241" y="232" text-anchor="middle" fill="#738c96" font-size="8" font-family="monospace">WiFi</text>
+                <rect x="127" y="186" width="35" height="58" rx="3" fill="#15222a" stroke="#58666c"/>
+                <path d="M133 194h23m-23 8h23m-23 8h23m-23 8h23m-23 8h23" stroke="#7e8988" stroke-width="2"/>
+                <rect x="321" y="202" width="21" height="38" rx="3" fill="#101a23" stroke="#667b7e"/>
+                <circle cx="312" cy="302" r="5" fill="#d3a54c"/><circle cx="328" cy="302" r="5" fill="#487f9b"/>
+                <text x="241" y="321" text-anchor="middle" fill="#8fb0b0" font-size="8" font-family="monospace" letter-spacing="2" data-i18n="microcontroller">MICROCONTRÔLEUR</text>
+              </g>
+              <g class="breadboard">
+                <rect x="491" y="145" width="303" height="174" rx="12" fill="#d7d8cb" stroke="#f0eee1" stroke-width="1.5"/>
+                <rect x="504" y="158" width="277" height="148" rx="6" fill="url(#bread-grid)"/>
+                <path d="M508 174h267M508 290h267" stroke="#bd6162" stroke-width="2" opacity=".75"/>
+                <path d="M508 184h267M508 280h267" stroke="#6286a3" stroke-width="2" opacity=".7"/>
+                <path d="M506 226h273" stroke="#aeb0a6" stroke-width="3"/>
+                <text x="520" y="169" fill="#75808a" font-size="8" font-family="monospace">+  +  +  +  +  +  +  +  +  +  +  +  +  +</text>
+                <text x="520" y="301" fill="#75808a" font-size="8" font-family="monospace">−  −  −  −  −  −  −  −  −  −  −  −  −  −</text>
+              </g>
+              <g class="led led-power">
+                <path d="M741 143v22" stroke="#c48c4b" stroke-width="2"/><path d="M734 165h14l-2 10h-10z" fill="#c9a46b" stroke="#715d42"/>
+                <path class="led-light" d="M734 165h14l-2 10h-10z" fill="#f6bd65"/>
+                <path d="M738 176v10m6-10v10" stroke="#879299" stroke-width="2"/>
+                <circle class="led-glow" cx="741" cy="169" r="19" fill="#f6bd65"/>
+                <text x="755" y="149" fill="#99a7b0" font-size="9" font-family="monospace">D1</text>
+              </g>
+              <g class="led led-java">
+                <path d="M741 315v-20" stroke="#c48c4b" stroke-width="2"/><path d="M734 295h14l-2-10h-10z" fill="#86a8be" stroke="#526b79"/>
+                <path class="led-light" d="M734 295h14l-2-10h-10z" fill="#76c5dc"/>
+                <path d="M738 284v-10m6 10v-10" stroke="#879299" stroke-width="2"/>
+                <circle class="led-glow" cx="741" cy="290" r="19" fill="#76c5dc"/>
+                <text x="755" y="312" fill="#99a7b0" font-size="9" font-family="monospace">D2</text>
+              </g>
+              <g class="led led-uno">
+                <path d="M502 309v-18" stroke="#c48c4b" stroke-width="2"/><path d="M495 291h14l-2-10h-10z" fill="#9e7669" stroke="#6f554d"/>
+                <path class="led-light" d="M495 291h14l-2-10h-10z" fill="#e2876d"/>
+                <path d="M499 280v-9m6 9v-9" stroke="#879299" stroke-width="2"/>
+                <circle class="led-glow" cx="502" cy="286" r="19" fill="#e2876d"/>
+                <text x="510" y="269" fill="#99a7b0" font-size="9" font-family="monospace">D3</text>
+              </g>
+              <g class="matrix">
+                <rect x="837" y="170" width="101" height="101" rx="8" fill="#172632" stroke="#48616d" stroke-width="1.5"/>
+                <rect x="846" y="179" width="83" height="83" rx="4" fill="#101b24"/>
+                <g fill="#38515d">
+                  <circle cx="855" cy="188" r="3"/><circle cx="871" cy="188" r="3"/><circle cx="887" cy="188" r="3"/><circle cx="903" cy="188" r="3"/><circle cx="919" cy="188" r="3"/>
+                  <circle cx="855" cy="204" r="3"/><circle cx="871" cy="204" r="3"/><circle cx="887" cy="204" r="3"/><circle cx="903" cy="204" r="3"/><circle cx="919" cy="204" r="3"/>
+                  <circle cx="855" cy="220" r="3"/><circle cx="871" cy="220" r="3"/><circle cx="887" cy="220" r="3"/><circle cx="903" cy="220" r="3"/><circle cx="919" cy="220" r="3"/>
+                  <circle cx="855" cy="236" r="3"/><circle cx="871" cy="236" r="3"/><circle cx="887" cy="236" r="3"/><circle cx="903" cy="236" r="3"/><circle cx="919" cy="236" r="3"/>
+                  <circle cx="855" cy="252" r="3"/><circle cx="871" cy="252" r="3"/><circle cx="887" cy="252" r="3"/><circle cx="903" cy="252" r="3"/><circle cx="919" cy="252" r="3"/>
+                </g>
+                <text x="887" y="290" text-anchor="middle" fill="#91a6ae" font-size="8" font-family="monospace" letter-spacing="1.5" data-i18n="ledMatrix">MATRICE DE DEL</text>
+              </g>
+              <path d="M794 231h23q20 0 20-18v-12" fill="none" stroke="#8a9b9c" stroke-width="1.5" stroke-dasharray="3 5"/>
+              <g class="annotation"><path d="M132 110v-24h62"/><text x="198" y="89" data-i18n="controlBoard">CARTE DE CONTRÔLE</text></g>
+              <g class="annotation"><path d="M600 337v19h53"/><text x="659" y="359" data-i18n="prototypingArea">ZONE DE PROTOTYPAGE</text></g>
+            </svg>
+            <div class="bench-legend"><span><i class="legend-dot dot-uno"></i> <span data-i18n="activeCircuit">CIRCUIT DU PROJET ACTIF</span></span><span data-i18n="illustrativeBench">BANC D’ESSAI ILLUSTRATIF</span></div>
+          </div>
+          <p class="bench-caption"><span data-i18n="interaction">INTERACTION</span> <span data-i18n="benchHelp">Survolez, placez le focus ou activez la carte du projet de systèmes embarqués pour allumer son fil et sa DEL.</span></p>
+        </div>
+        <div class="water-mist water-mist-bottom" aria-hidden="true"></div>
+        <svg class="section-flora" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><use href="#garden-flower" x="0" y="0" width="200" height="200"/></svg>
+      </section>
+
+      <section class="section-shell content-section" id="skills" aria-labelledby="skills-title">
+        <svg class="section-flora" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><use href="#garden-flower" x="0" y="0" width="200" height="200"/></svg>
+        <div class="section-heading">
+          <div><p class="eyebrow" data-i18n="skillsEyebrow">03 — COMPÉTENCES</p><h2 id="skills-title" data-i18n="skillsTitle">Outils utilisés.</h2></div>
+          <p class="section-summary" data-i18n="skillsSummary">Un aperçu des langages, outils et technologies que j’ai utilisés ou que j’apprends actuellement.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-group"><h3 data-i18n="languagesTitle">Langages</h3><ul><li>C</li><li>Java</li><li>Python</li><li>JavaScript</li><li>TypeScript</li><li>HTML</li><li>CSS</li><li>SQL</li></ul></article>
+          <article class="skill-group"><h3 data-i18n="toolsTitle">Outils et technologies</h3><ul><li>Git</li><li>GitHub</li><li>VS Code</li><li>Node.js</li><li>Express</li><li>Jest</li><li>Figma</li><li>Oracle SQL</li><li>MySQL</li><li>XAMPP</li></ul></article>
+          <article class="skill-group"><h3 data-i18n="learningTitle">En apprentissage</h3><ul><li>Arduino</li><li data-i18n="embeddedSkill">Systèmes embarqués</li><li>Microsoft Power Apps</li></ul></article>
+        </div>
+      </section>
+
+      <section class="section-shell content-section education-section" id="education" aria-labelledby="education-title">
+        <div class="section-heading">
+          <div><p class="eyebrow" data-i18n="educationEyebrow">04 — FORMATION</p><h2 id="education-title" data-i18n="educationTitle">Formation.</h2></div>
+        </div>
+        <div class="education-list">
+          <article class="education-item"><span class="education-index">01</span><div><h3 data-i18n="degreeTitle">Baccalauréat en génie logiciel</h3><p>École de technologie supérieure (ÉTS)</p></div><span class="status status-progress"><i></i> <span data-i18n="inProgress">En cours</span></span></article>
+          <article class="education-item"><span class="education-index">02</span><div><h3 data-i18n="decTitle">DEC en sciences de la nature</h3><p>Collège Montmorency</p></div></article>
+        </div>
+      </section>
+
+      <section class="about-band" id="about" aria-labelledby="about-title">
+        <svg class="about-flora floral-art" viewBox="0 0 560 430" aria-hidden="true" focusable="false">
+          <path class="garden-stem" d="M302 430C290 342 330 284 299 224C272 173 324 110 326 34M302 335C258 289 231 282 201 283M312 284C365 253 392 246 423 253"/>
+          <path class="garden-leaf" d="M285 322C238 278 213 285 200 283C221 316 251 331 285 322M321 283C358 244 394 244 423 253C398 283 362 295 321 283"/>
+          <use href="#garden-flower" x="238" y="5" width="178" height="178"/>
+          <use href="#garden-flower" x="116" y="208" width="112" height="112" opacity=".82"/>
+          <use href="#garden-flower" x="384" y="185" width="124" height="124" opacity=".86"/>
+        </svg>
+        <div class="section-shell about-layout">
+          <div><p class="eyebrow" data-i18n="aboutEyebrow">05 — À PROPOS</p><h2 id="about-title" data-i18n="aboutTitle">À propos d’Aurélie.</h2></div>
+          <div class="about-copy">
+            <div class="experience-item"><p class="experience-label" data-i18n="experienceLabel">EXPÉRIENCE PROFESSIONNELLE</p><h3 data-i18n="supportWorker">Intervenante en soutien aux personnes autistes</h3><p data-i18n="supportDescription">J’accompagne des jeunes et des adultes autistes dans leur quotidien, le développement de leur autonomie et leur participation à la communauté.</p></div>
+            <p class="interests-intro" data-i18n="interestsTitle">Centres d’intérêt</p>
+            <div class="interest-list"><span data-i18n="embedded">SYSTÈMES EMBARQUÉS</span><span data-i18n="biomedical">TECHNOLOGIES BIOMÉDICALES</span><span data-i18n="cybersecurity">CYBERSÉCURITÉ</span><span data-i18n="aerospace">AÉROSPATIAL</span><span data-i18n="entrepreneurship">ENTREPRENEURIAT</span><span data-i18n="international">COLLABORATION INTERNATIONALE</span></div>
+            <section class="contact-block" id="contact" aria-labelledby="contact-title">
+              <h3 id="contact-title" data-i18n="contactTitle">Coordonnées</h3>
+              <p data-i18n="contactIntro">Pour communiquer avec moi ou m’écrire :</p>
+              <div class="contact-links" aria-label="Coordonnées" data-i18n-aria="contactLabel">
+                <a href="https://github.com/AurelieeF/" target="_blank" rel="noopener noreferrer" data-i18n="githubLink">Profil GitHub (ouvre un nouvel onglet)</a>
+                <a href="https://www.linkedin.com/in/aurelie-f-605966369/" target="_blank" rel="noopener noreferrer" data-i18n="linkedinLink">Profil LinkedIn (ouvre un nouvel onglet)</a>
+                <a href="mailto:aurelie.fidelia.1@ens.etsmtl.ca" data-i18n="emailLink">Écrire à Aurélie Fidelia</a>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer section-shell">
+      <div class="footer-meta"><span data-i18n="footerLocation">AURÉLIE FIDELIA · GRAND MONTRÉAL, QUÉBEC, CANADA</span><a href="#top" data-i18n="backToTop">RETOUR EN HAUT ↑</a></div>
+    </footer>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@4.1.0/dist/model-viewer.min.js"></script>
+    <script>
+      const translations = {
+        fr: {
+          skip: "Aller au contenu", homeLabel: "Accueil du portfolio", navLabel: "Navigation principale",
+          navProjects: "Projets", navEmbedded: "Embarqué", navCollaborations: "Collaborations",
+          navSkills: "Compétences", navEducation: "Études", navAbout: "À propos", navContact: "CONTACT",
+          heroEyebrow: "GÉNIE LOGICIEL · ÉTS",
+          heroIntro: "Je suis étudiante en génie logiciel à l’ÉTS et j’explore le logiciel, les systèmes embarqués et les projets collaboratifs. J’aime créer des outils pratiques et comprendre les liens entre le logiciel et les systèmes physiques.",
+          location: "GRAND MONTRÉAL, QUÉBEC, CANADA", exploreProjects: "Découvrir mes projets",
+          areasLabel: "Domaines explorés", fields: "DOMAINES D’EXPLORATION",
+          software: "LOGICIEL", embedded: "SYSTÈMES EMBARQUÉS", collaborations: "COLLABORATION",
+          projectsEyebrow: "01 — PROJETS", projectsTitle: "Projets et expériences.",
+          projectsSummary: "Un aperçu filtrable de mes projets logiciels, de mon apprentissage des systèmes embarqués, de mes collaborations et de mon expérience professionnelle.",
+          filtersLabel: "Filtrer les projets et expériences",
+          embeddedEyebrow: "02 — SYSTÈMES EMBARQUÉS", embeddedTitle: "Apprendre en expérimentant.",
+          embeddedSummary: "J’ai récemment acheté une trousse ELEGOO UNO R4 WiFi et j’apprends à utiliser Arduino, une plaque d’essai et des DEL.",
+          benchTitle: "ATELIER / 001", boardMeta: "UNO R4 WIFI · APPRENTISSAGE", schematic: "VUE SCHÉMATIQUE",
+          benchSvgTitle: "Banc d’essai électronique stylisé",
+          benchSvgDescription: "Une carte inspirée de la R4 WiFi reliée à une plaque d’essai avec des fils de connexion, des DEL et une matrice à DEL discrète. Placez le focus sur la carte de projet des systèmes embarqués ou activez-la pour allumer la DEL et le fil correspondants.",
+          controlBoard: "CARTE DE CONTRÔLE", prototypingArea: "ZONE DE PROTOTYPAGE",
+          activeCircuit: "CIRCUIT DU PROJET ACTIF", illustrativeBench: "BANC D’ESSAI ILLUSTRATIF",
+          interaction: "INTERACTION", benchHelp: "Survolez, placez le focus ou activez la carte du projet de systèmes embarqués pour allumer son fil et sa DEL.",
+          skillsEyebrow: "03 — COMPÉTENCES", skillsTitle: "Outils utilisés.",
+          skillsSummary: "Un aperçu des langages, outils et technologies que j’ai utilisés ou que j’apprends actuellement.",
+          languagesTitle: "Langages", toolsTitle: "Outils et technologies", learningTitle: "En apprentissage",
+          embeddedSkill: "Systèmes embarqués",
+          educationEyebrow: "04 — FORMATION", educationTitle: "Formation.",
+          degreeTitle: "Baccalauréat en génie logiciel", decTitle: "DEC en sciences de la nature", inProgress: "En cours",
+          aboutEyebrow: "05 — À PROPOS", aboutTitle: "À propos d’Aurélie.",
+          experienceLabel: "EXPÉRIENCE PROFESSIONNELLE",
+          supportWorker: "Intervenante en soutien aux personnes autistes",
+          supportDescription: "J’accompagne des jeunes et des adultes autistes dans leur quotidien, le développement de leur autonomie et leur participation à la communauté.",
+          interestsTitle: "Centres d’intérêt", biomedical: "TECHNOLOGIES BIOMÉDICALES",
+          cybersecurity: "CYBERSÉCURITÉ", aerospace: "AÉROSPATIAL",
+          entrepreneurship: "ENTREPRENEURIAT", international: "COLLABORATION INTERNATIONALE",
+          contactTitle: "Coordonnées", contactIntro: "Pour communiquer avec moi ou m’écrire :",
+          contactLabel: "Coordonnées", githubLink: "Profil GitHub (ouvre un nouvel onglet)",
+          linkedinLink: "Profil LinkedIn (ouvre un nouvel onglet)", emailLink: "Écrire à Aurélie Fidelia",
+          footerLocation: "AURÉLIE FIDELIA · GRAND MONTRÉAL, QUÉBEC, CANADA", backToTop: "RETOUR EN HAUT ↑",
+          contributionLabel: "MA CONTRIBUTION", plannedLabel: "À FAIRE",
+          technologiesLabel: "TECHNOLOGIES", locationLabel: "LIEU",
+          distinction: "LES ÉLÉMENTS PRÉVUS NE SONT PAS ENCORE RÉALISÉS",
+          globeAlt: "Globe 3D avec des continents lumineux, un soleil intérieur et trois épingles rouges.",
+          globeTextAlternative: "Globe interactif avec des continents lumineux, un soleil intérieur et des épingles rouges. Les épingles indiquent Montréal, Canada; Space Apps Universal Event aux États-Unis (association symbolique); et StudentCorner au Pakistan.",
+          globeLoading: "Chargement du globe 3D…", globeLoaded: "Globe 3D chargé. Faites-le glisser pour le faire pivoter; utilisez les marqueurs pour afficher les détails.",
+          globeError: "Le globe 3D n’a pas pu être chargé. Les lieux associés sont indiqués dans la liste ci-dessous.",
+          pinMontreal: "Montréal, Canada", pinUsa: "États-Unis — Space Apps Universal Event (association symbolique)",
+          pinPakistan: "Pakistan — StudentCorner",
+          pinMontrealAria: "Afficher l’association symbolique : Montréal, Canada",
+          pinUsaAria: "Afficher l’association symbolique : Space Apps Universal Event, États-Unis",
+          pinPakistanAria: "Afficher l’association symbolique : StudentCorner, Pakistan",
+          globeTitle: "Globe 3D interactif",
+          globePurpose: "Un globe interactif présentant les continents lumineux, un soleil intérieur et des épingles rouges. Les associations indiquées sont Montréal, Canada; Space Apps Universal Event aux États-Unis (association symbolique); et StudentCorner au Pakistan.",
+          categories: { all: "Tout", software: "Logiciel", embedded: "Systèmes embarqués", collaborations: "Collaborations", experience: "Expérience" },
+          statuses: { Learning: "En apprentissage", "In progress": "En cours", Completed: "Terminé" },
+          toggleLabel: "Passer à l’anglais",
+          projectLabels: {
+            "java-practice": {
+              title: "Exercices de programmation en Java",
+              purpose: "Mes exercices actuels portent sur l’analyse de texte — compter les majuscules, les minuscules, les chiffres et les voyelles, et vérifier les palindromes — ainsi que sur des opérations sur les tableaux : somme, moyenne, minimum, maximum, recherche, décompte des occurrences et inversion.",
+              technologies: ["Java"],
+            },
+            typewriter: {
+              title: "Typewriter",
+              purpose: "Une application d’écriture interactive et chaleureuse proposant des modes machine à écrire 2D et 3D, des sons de frappe, une musique d’ambiance, des effets visuels magiques et des notes enregistrées dans PostgreSQL. Ce projet d’apprentissage autodirigé est déployé et continue d’évoluer.",
+              contribution: "J’ai développé ce projet personnel pour explorer les interactions frontales, le son, l’animation, le rendu 3D, les API serveur, l’intégration à PostgreSQL et la conception d’interface.",
+              technologies: ["HTML", "CSS", "JavaScript", "Three.js", "Python", "Flask", "Flask-CORS", "psycopg", "PostgreSQL"],
+              links: [
+                { label: "Démo en direct", href: "https://typewriter-mu-drab.vercel.app/", external: true },
+                { label: "Code source", href: "https://github.com/AurelieeF/Typewriter", external: true },
+              ],
+            },
+            powerapps: {
+              title: "Application canevas Power Apps",
+              purpose: "J’ai commencé à apprendre Microsoft Power Apps et à créer une application canevas. Son objectif et ses fonctionnalités restent à préciser.",
+              technologies: ["Microsoft Power Apps"],
+            },
+            uno: {
+              title: "Expériences avec l’ELEGOO UNO R4 WiFi",
+              purpose: "J’ai récemment acheté une trousse ELEGOO UNO R4 WiFi et j’apprends Arduino, le câblage sur plaque d’essai et l’utilisation des DEL.",
+              technologies: ["Arduino", "Plaque d’essai", "DEL"],
+            },
+            "earth-globe": {
+              title: "Globe 3D interactif",
+              purpose: "Un globe interactif présentant les continents lumineux, un soleil intérieur et des épingles rouges. Les associations indiquées sont Montréal, Canada; Space Apps Universal Event aux États-Unis (association symbolique); et StudentCorner au Pakistan.",
+              technologies: ["GLB", "@google/model-viewer"],
+            },
+            studentcorner: {
+              title: "StudentCorner",
+              purpose: "Un projet collaboratif de développement Web par et pour les étudiants, autour de « Apprendre. Créer. Échanger. ». L’objectif est de réunir la découverte de ressources d’apprentissage, des projets inspirants et une section de jumelage d’étude. Le projet vise à faciliter la recherche de ressources utiles, le partage de réalisations et les échanges entre personnes qui apprennent. Ces fonctionnalités sont prévues, mais ne sont pas confirmées comme étant fonctionnelles.",
+              contribution: "Création initiale de la barre de navigation et de la structure des pages en HTML/CSS, avec leur mise en forme et les liens Accueil, Ressources, Projets, Study Buddy et À propos.",
+              planned: "Créer les pages Projets et Study Buddy.",
+              technologies: ["HTML", "CSS"],
+            },
+            "nasa-space-apps": {
+              purpose: "Inscrite et en train de choisir un défi. Le défi, l’équipe et la participation individuelle restent à déterminer.",
+            },
+            "autism-support": {
+              title: "Intervenante en soutien aux personnes autistes",
+              purpose: "Accompagnement de jeunes et d’adultes autistes dans leur quotidien, leur autonomie et leur participation à la communauté.",
+            },
+          },
+        },
+        en: {
+          skip: "Skip to content", homeLabel: "Portfolio home", navLabel: "Main navigation",
+          navProjects: "Projects", navEmbedded: "Embedded", navCollaborations: "Collaborations",
+          navSkills: "Skills", navEducation: "Education", navAbout: "About", navContact: "CONTACT",
+          heroEyebrow: "SOFTWARE ENGINEERING · ÉTS",
+          heroIntro: "I am a software engineering student at ÉTS exploring software, embedded systems, and collaborative technical projects. I am interested in building practical tools and understanding how software connects with physical systems.",
+          location: "GREATER MONTRÉAL, QUÉBEC, CANADA", exploreProjects: "Explore projects",
+          areasLabel: "Areas of exploration", fields: "ENGINEERING FIELDS",
+          software: "SOFTWARE", embedded: "EMBEDDED SYSTEMS", collaborations: "COLLABORATION",
+          projectsEyebrow: "01 — PROJECTS", projectsTitle: "Projects & experience.",
+          projectsSummary: "A filterable record of software, embedded-systems learning, collaborations, and work experience.",
+          filtersLabel: "Filter projects and experience",
+          embeddedEyebrow: "02 — EMBEDDED SYSTEMS", embeddedTitle: "Learning by wiring.",
+          embeddedSummary: "I recently purchased an ELEGOO UNO R4 WiFi kit and am learning Arduino, breadboard wiring, and LEDs.",
+          benchTitle: "BENCH / 001", boardMeta: "UNO R4 WIFI · LEARNING SETUP", schematic: "SCHEMATIC VIEW",
+          benchSvgTitle: "Stylized electronics workbench",
+          benchSvgDescription: "A stylized R4 WiFi-inspired board connected to a breadboard with jumper wires, LEDs, and a subtle LED matrix. Focus or activate the embedded-systems project card in the timeline to light its LED and wire.",
+          controlBoard: "CONTROL BOARD", prototypingArea: "PROTOTYPING AREA",
+          activeCircuit: "ACTIVE PROJECT CIRCUIT", illustrativeBench: "ILLUSTRATIVE WORKBENCH",
+          interaction: "INTERACTION", benchHelp: "Hover, focus, or activate the embedded-systems card in the project list to light its wire and LED.",
+          skillsEyebrow: "03 — SKILLS", skillsTitle: "Tools I’ve used.",
+          skillsSummary: "A snapshot of languages, tools, and technologies used or currently being learned.",
+          languagesTitle: "Languages", toolsTitle: "Tools & technologies", learningTitle: "Currently learning",
+          embeddedSkill: "Embedded systems",
+          educationEyebrow: "04 — EDUCATION", educationTitle: "Education.",
+          degreeTitle: "Bachelor’s degree in Software Engineering", decTitle: "DEC in Natural Sciences", inProgress: "In progress",
+          aboutEyebrow: "05 — ABOUT", aboutTitle: "About Aurélie.",
+          experienceLabel: "WORK EXPERIENCE", supportWorker: "Autism Support Worker",
+          supportDescription: "Support young people and adults with autism in daily living, independence, and community participation.",
+          interestsTitle: "Interests", biomedical: "BIOMEDICAL TECHNOLOGY",
+          cybersecurity: "CYBERSECURITY", aerospace: "AEROSPACE",
+          entrepreneurship: "ENTREPRENEURSHIP", international: "INTERNATIONAL COLLABORATION",
+          contactTitle: "Contact", contactIntro: "Connect with me or send a message:",
+          contactLabel: "Contact links", githubLink: "GitHub profile (opens in a new tab)",
+          linkedinLink: "LinkedIn profile (opens in a new tab)", emailLink: "Email Aurélie Fidelia",
+          footerLocation: "AURÉLIE FIDELIA · GREATER MONTRÉAL, QUÉBEC, CANADA", backToTop: "BACK TO TOP ↑",
+          contributionLabel: "MY CONTRIBUTION", plannedLabel: "PLANNED",
+          technologiesLabel: "TECHNOLOGIES", locationLabel: "LOCATION",
+          distinction: "PLANNED ITEMS ARE NOT IMPLEMENTED",
+          globeAlt: "3D globe with luminous continents, an inner sun, and three red pins.",
+          globeTextAlternative: "Interactive globe with luminous continents, an inner sun, and red pins. The pins mark Montréal, Canada; USA — Space Apps Universal Event (symbolic association); and Pakistan — StudentCorner.",
+          globeLoading: "Loading the 3D globe…", globeLoaded: "3D globe loaded. Drag to rotate; use the markers to view their details.",
+          globeError: "The 3D globe could not be loaded. Its associated locations are listed below.",
+          pinMontreal: "Montréal, Canada", pinUsa: "USA — Space Apps Universal Event (symbolic association)",
+          pinPakistan: "Pakistan — StudentCorner",
+          pinMontrealAria: "Show symbolic association: Montréal, Canada",
+          pinUsaAria: "Show symbolic association: Space Apps Universal Event, USA",
+          pinPakistanAria: "Show symbolic association: StudentCorner, Pakistan",
+          globeTitle: "Interactive 3D Globe",
+          globePurpose: "An interactive globe featuring luminous continents, an inner sun, and red pins. The marked associations are Montréal, Canada; USA — Space Apps Universal Event (symbolic association); and Pakistan — StudentCorner.",
+          categories: { all: "All", software: "Software", embedded: "Embedded Systems", collaborations: "Collaborations", experience: "Experience" },
+          statuses: { Learning: "Learning", "In progress": "In progress", Completed: "Completed" },
+          toggleLabel: "Switch to French",
+          projectLabels: {
+            "java-practice": { title: "Java Practice Projects", purpose: "Current practice exercises cover text analysis—counting uppercase and lowercase letters, digits and vowels, and checking palindromes—and array utilities: sum, average, minimum, maximum, searching, counting occurrences, and reversing.", technologies: ["Java"] },
+            typewriter: {
+              title: "Typewriter",
+              purpose: "A cozy interactive writing app with 2D and 3D typewriter modes, typing sounds, ambient music, magical visual effects, and saved notes backed by PostgreSQL. This self-directed learning project is deployed and still being improved.",
+              contribution: "I built this personal project to explore frontend interactions, audio, animation, 3D rendering, backend APIs, PostgreSQL integration, and UI design.",
+              technologies: ["HTML", "CSS", "JavaScript", "Three.js", "Python", "Flask", "Flask-CORS", "psycopg", "PostgreSQL"],
+              links: [
+                { label: "Live demo", href: "https://typewriter-mu-drab.vercel.app/", external: true },
+                { label: "Source code", href: "https://github.com/AurelieeF/Typewriter", external: true },
+              ],
+            },
+            powerapps: { title: "PowerApps Canvas App", purpose: "I have started learning Microsoft Power Apps and building a canvas app. Its purpose and features have not been specified yet.", technologies: ["Microsoft Power Apps"] },
+            uno: { title: "ELEGOO UNO R4 WiFi Experiments", purpose: "I recently purchased an ELEGOO UNO R4 WiFi kit and am learning Arduino, breadboard wiring, and LEDs.", technologies: ["Arduino", "Breadboard", "LEDs"] },
+            "earth-globe": { title: "Interactive 3D Globe", purpose: "An interactive globe featuring luminous continents, an inner sun, and red pins. The marked associations are Montréal, Canada; USA — Space Apps Universal Event (symbolic association); and Pakistan — StudentCorner.", technologies: ["GLB", "@google/model-viewer"] },
+            studentcorner: { title: "StudentCorner", purpose: "A collaborative web-development project for students, by students, around “Learn. Build. Connect.” It aims to bring together learning-resource discovery, project showcases and inspiration, and a Study Buddy section. It addresses the difficulty of finding useful learning materials, places to share work, and peers to learn with in one place. These are intended features, not confirmed working functionality.", contribution: "Initial HTML/CSS navigation bar and page structure, including its styling and links for Home, Resources, Projects, Study Buddy, and About.", planned: "Build the Projects and Study Buddy pages.", technologies: ["HTML", "CSS"] },
+            "nasa-space-apps": { purpose: "Registered and choosing a challenge. The challenge, team, and whether I will participate alone are not yet decided." },
+            "autism-support": { title: "Autism Support Worker", purpose: "Support young people and adults with autism in daily living, independence, and community participation." },
+          },
+        },
+      };
+
+      let currentLanguage = "fr";
+      const languageToggle = document.querySelector("#language-toggle");
+      const globeMotionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      let categoryLabels = translations.fr.categories;
+
+      const projects = [
+        {
+          id: "java-practice",
+          category: "software",
+          index: "S / 01",
+          title: "Java Practice Projects",
+          statuses: ["Learning", "In progress"],
+          icon: "symbol-code",
+          purpose: "Current practice exercises cover text analysis—counting uppercase and lowercase letters, digits and vowels, and checking palindromes—and array utilities: sum, average, minimum, maximum, searching, counting occurrences, and reversing.",
+          technologies: ["Java"],
+        },
+        {
+          id: "powerapps",
+          category: "software",
+          index: "S / 02",
+          title: "PowerApps Canvas App",
+          statuses: ["In progress"],
+          icon: "symbol-app",
+          purpose: "I have started learning Microsoft Power Apps and building a canvas app. Its purpose and features have not been specified yet.",
+          technologies: ["Microsoft Power Apps"],
+        },
+        {
+          id: "typewriter",
+          category: "software",
+          index: "S / 03",
+          title: "Typewriter",
+          statuses: ["Learning", "In progress"],
+          icon: "symbol-code",
+          purpose: "A cozy interactive writing app with 2D and 3D typewriter modes, typing sounds, ambient music, magical visual effects, and saved notes backed by PostgreSQL. This self-directed learning project is deployed and still being improved.",
+          contribution: "I built this personal project to explore frontend interactions, audio, animation, 3D rendering, backend APIs, PostgreSQL integration, and UI design.",
+          technologies: ["HTML", "CSS", "JavaScript", "Three.js", "Python", "Flask", "Flask-CORS", "psycopg", "PostgreSQL"],
+          links: [
+            { label: "Live demo", href: "https://typewriter-mu-drab.vercel.app/", external: true },
+            { label: "Source code", href: "https://github.com/AurelieeF/Typewriter", external: true },
+          ],
+        },
+        {
+          id: "uno",
+          category: "embedded",
+          index: "E / 01",
+          title: "ELEGOO UNO R4 WiFi Experiments",
+          statuses: ["Learning"],
+          icon: "symbol-board",
+          purpose: "I recently purchased an ELEGOO UNO R4 WiFi kit and am learning Arduino, breadboard wiring, and LEDs.",
+          technologies: ["Arduino", "Breadboard", "LEDs"],
+          led: true,
+        },
+        {
+          id: "studentcorner",
+          category: "collaborations",
+          index: "C / 01",
+          title: "StudentCorner",
+          statuses: ["In progress"],
+          icon: "symbol-app",
+          purpose: "A collaborative web-development project for students, by students, around “Learn. Build. Connect.” It aims to bring together learning-resource discovery, project showcases and inspiration, and a Study Buddy section. It addresses the difficulty of finding useful learning materials, places to share work, and peers to learn with in one place. These are intended features, not confirmed working functionality.",
+          contribution: "Initial HTML/CSS navigation bar and page structure, including its styling and links for Home, Resources, Projects, Study Buddy, and About.",
+          planned: "Build the Projects and Study Buddy pages.",
+          technologies: ["HTML", "CSS"],
+        },
+        {
+          id: "nasa-space-apps",
+          category: "collaborations",
+          index: "C / 02",
+          title: "NASA Space Apps",
+          statuses: ["In progress"],
+          icon: "symbol-orbit",
+          purpose: "Registered and choosing a challenge. The challenge, team, and whether I will participate alone are not yet decided.",
+        },
+        {
+          id: "earth-globe",
+          category: "collaborations",
+          index: "C / 03",
+          title: "Interactive 3D Globe",
+          icon: "symbol-orbit",
+          purpose: "An interactive globe featuring luminous continents, an inner sun, and red pins. The marked associations are Montréal, Canada; USA — Space Apps Universal Event (symbolic association); and Pakistan — StudentCorner.",
+          technologies: ["GLB", "@google/model-viewer"],
+          globe: true,
+        },
+        {
+          id: "autism-support",
+          category: "experience",
+          index: "X / 01",
+          title: "Autism Support Worker",
+          icon: "symbol-support",
+          purpose: "Support young people and adults with autism in daily living, independence, and community participation.",
+        },
+      ];
+
+      const projectList = document.querySelector("#project-timeline");
+      const filterList = document.querySelector("#project-filters");
+      const projectTemplate = document.querySelector("#project-card-template");
+      const workbench = document.querySelector(".workbench");
+      let hoveredProject = null;
+      let focusedProject = null;
+      let selectedProject = null;
+      let activeFilter = "all";
+
+      function projectText(project, field) {
+        return translations[currentLanguage].projectLabels[project.id]?.[field] ?? project[field];
+      }
+
+      function appendProjectLink(list, link) {
+        const item = document.createElement("li");
+        const anchor = document.createElement("a");
+        anchor.href = link.href;
+        anchor.textContent = link.label;
+        if (link.external) {
+          anchor.target = "_blank";
+          anchor.rel = "noopener noreferrer";
+          anchor.setAttribute("aria-label", `${link.label} (opens in a new tab)`);
+        }
+        item.append(anchor);
+        list.append(item);
+      }
+
+      function setOptionalText(card, selector, value) {
+        const field = card.querySelector(selector);
+        if (!value) {
+          field.remove();
+          return;
+        }
+        const valueField = field.querySelector("[data-value]");
+        if (valueField) {
+          valueField.textContent = value;
+        } else {
+          field.textContent = value;
+        }
+        field.hidden = false;
+      }
+
+      function createProjectCard(project) {
+        const card = projectTemplate.content.firstElementChild.cloneNode(true);
+        card.classList.add(`category-${project.category}`);
+        card.dataset.category = project.category;
+        card.dataset.project = project.id;
+        card.querySelector('[data-field="index"]').textContent = project.index || "";
+        card.querySelector('[data-field="title"]').textContent = projectText(project, "title");
+        card.querySelector('[data-field="category-label"]').textContent = categoryLabels[project.category];
+
+        const statuses = card.querySelector('[data-field="statuses"]');
+        (project.statuses || []).forEach((label) => {
+          const status = document.createElement("span");
+          const statusClass = label === "In progress" ? "status-progress" : label === "Completed" ? "status-completed" : "status-learning";
+          status.className = `status ${statusClass}`;
+          const indicator = document.createElement("i");
+          indicator.setAttribute("aria-hidden", "true");
+          status.append(indicator, document.createTextNode(translations[currentLanguage].statuses[label]));
+          statuses.append(status);
+        });
+        if (!project.statuses?.length) {
+          statuses.remove();
+        }
+
+        const icon = card.querySelector('[data-field="icon"]');
+        if (project.icon) {
+          icon.classList.add(project.icon);
+          if (project.icon === "symbol-app") {
+            icon.innerHTML = "<span></span><span></span><span></span>";
+          } else if (project.icon === "symbol-code") {
+            icon.innerHTML = "<span>&lt;</span><span>/&gt;</span>";
+          } else if (project.icon === "symbol-board") {
+            icon.innerHTML = "<span></span><span></span><span></span><span></span>";
+          } else if (project.icon === "symbol-orbit") {
+            icon.innerHTML = "<span></span><span></span><span></span>";
+          } else if (project.icon === "symbol-support") {
+            icon.textContent = "01";
+          }
+        } else {
+          icon.remove();
+        }
+
+        setOptionalText(card, '[data-field="purpose"]', projectText(project, "purpose"));
+        setOptionalText(card, '[data-field="contribution"]', projectText(project, "contribution"));
+        setOptionalText(card, '[data-field="planned"]', projectText(project, "planned"));
+
+        const technologies = card.querySelector('[data-field="technologies"]');
+        const technologiesText = projectText(project, "technologies");
+        if (technologiesText?.length) {
+          card.querySelector('[data-field="technology-list"]').textContent = technologiesText.join(" · ");
+          technologies.hidden = false;
+        } else {
+          technologies.remove();
+        }
+
+        const location = card.querySelector('[data-field="location"]');
+        if (project.location) {
+          card.querySelector('[data-field="location-value"]').textContent = project.location;
+          location.hidden = false;
+        } else {
+          location.remove();
+        }
+
+        const screenshot = card.querySelector('[data-field="screenshot"]');
+        if (project.screenshot) {
+          const image = screenshot.querySelector("img");
+          image.src = project.screenshot.src;
+          image.alt = project.screenshot.alt;
+          screenshot.querySelector("figcaption").textContent = project.screenshot.caption || "";
+          screenshot.hidden = false;
+        } else {
+          screenshot.remove();
+        }
+
+        const globeFeature = card.querySelector('[data-field="globe-feature"]');
+        if (project.globe) {
+          globeFeature.hidden = false;
+          initializeGlobe(card);
+        } else {
+          globeFeature.remove();
+        }
+
+        const demo = card.querySelector('[data-field="demo"]');
+        if (project.demo) {
+          const link = document.createElement("a");
+          link.href = project.demo.href;
+          link.textContent = project.demo.label;
+          demo.append("DEMO — ", link);
+          demo.hidden = false;
+        } else {
+          demo.remove();
+        }
+
+        const links = card.querySelector('[data-field="links"]');
+        const projectLinks = projectText(project, "links") ?? project.links;
+        if (projectLinks?.length) {
+          projectLinks.forEach((link) => appendProjectLink(links, link));
+          links.hidden = false;
+        } else {
+          links.remove();
+        }
+
+        card.querySelector('[data-field="distinction"]').textContent = project.planned ? translations[currentLanguage].distinction : "";
+
+        if (project.led) {
+          card.tabIndex = 0;
+          card.setAttribute("role", "button");
+          card.setAttribute("aria-pressed", "false");
+          const title = projectText(project, "title");
+          const status = translations[currentLanguage].statuses.Learning;
+          const instruction = currentLanguage === "fr"
+            ? "Placez le focus ou activez pour allumer la DEL de l’atelier."
+            : "Focus or activate to illuminate the workbench LED.";
+          card.setAttribute("aria-label", `${title}, ${status}. ${instruction}`);
+          bindWorkbenchInteractions(card);
+        }
+
+        return card;
+      }
+
+      function updateWorkbench() {
+        const activeProject = focusedProject || hoveredProject || selectedProject;
+        workbench.dataset.activeProject = activeProject === "uno" ? "uno" : "";
+        const card = document.querySelector('[data-project="uno"]');
+        if (card) {
+          card.setAttribute("aria-pressed", String(selectedProject === "uno"));
+          card.dataset.active = String(activeProject === "uno");
+        }
+      }
+
+      function initializeGlobe(card) {
+        const viewer = card.querySelector("[data-field='globe-viewer']");
+        const status = card.querySelector("[data-field='globe-state']");
+        const updateRotation = () => viewer.toggleAttribute("auto-rotate", !globeMotionPreference.matches);
+        updateRotation();
+        viewer.addEventListener("load", () => {
+          status.hidden = true;
+        }, { once: true });
+        viewer.addEventListener("error", () => {
+          status.dataset.state = "error";
+          status.textContent = translations[currentLanguage].globeError;
+          status.hidden = false;
+          viewer.hidden = true;
+        }, { once: true });
+        viewer.querySelectorAll(".globe-pin").forEach((pin) => {
+          pin.addEventListener("click", () => {
+            const willSelect = pin.getAttribute("aria-pressed") !== "true";
+            viewer.querySelectorAll(".globe-pin").forEach((otherPin) => {
+              otherPin.setAttribute("aria-pressed", String(otherPin === pin && willSelect));
+            });
+          });
+        });
+      }
+
+      globeMotionPreference.addEventListener("change", () => {
+        document.querySelectorAll(".globe-viewer").forEach((viewer) => {
+          viewer.toggleAttribute("auto-rotate", !globeMotionPreference.matches);
+        });
+      });
+
+      function bindWorkbenchInteractions(card) {
+        card.addEventListener("pointerenter", () => {
+          hoveredProject = card.dataset.project;
+          updateWorkbench();
+        });
+        card.addEventListener("pointerleave", () => {
+          hoveredProject = null;
+          updateWorkbench();
+        });
+        card.addEventListener("focus", () => {
+          focusedProject = card.dataset.project;
+          updateWorkbench();
+        });
+        card.addEventListener("blur", () => {
+          focusedProject = null;
+          updateWorkbench();
+        });
+        card.addEventListener("click", () => {
+          selectedProject = selectedProject === card.dataset.project ? null : card.dataset.project;
+          updateWorkbench();
+        });
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            selectedProject = selectedProject === card.dataset.project ? null : card.dataset.project;
+            updateWorkbench();
+          }
+        });
+      }
+
+      function setActiveFilter(filter) {
+        activeFilter = filter;
+        filterList.querySelectorAll(".filter-button").forEach((button) => {
+          const selected = button.dataset.filter === filter;
+          button.classList.toggle("is-selected", selected);
+          button.setAttribute("aria-pressed", String(selected));
+        });
+        projectList.querySelectorAll(".project-card").forEach((card) => {
+          card.hidden = filter !== "all" && card.dataset.category !== filter;
+        });
+        if (selectedProject && projectList.querySelector(`[data-project="${selectedProject}"]`)?.hidden) {
+          selectedProject = null;
+          updateWorkbench();
+        }
+      }
+
+      function renderFilters() {
+        filterList.replaceChildren();
+        const populatedCategories = [...new Set(projects.map((project) => project.category))];
+        const filters = [["all", categoryLabels.all], ...populatedCategories.map((category) => [category, categoryLabels[category]])];
+        filters.forEach(([key, label]) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "filter-button";
+          button.dataset.filter = key;
+          button.setAttribute("aria-pressed", "false");
+          const count = projects.filter((project) => key === "all" || project.category === key).length;
+          button.append(label, document.createTextNode(" "));
+          const number = document.createElement("span");
+          number.setAttribute("aria-hidden", "true");
+          number.textContent = String(count).padStart(2, "0");
+          button.append(number);
+          button.addEventListener("click", () => setActiveFilter(key));
+          filterList.append(button);
+        });
+
+        setActiveFilter(activeFilter);
+      }
+
+      function renderProjects() {
+        projectList.replaceChildren(...projects.map(createProjectCard));
+        applyTranslations();
+        setActiveFilter(activeFilter);
+        updateWorkbench();
+      }
+
+      function applyTranslations() {
+        const dictionary = translations[currentLanguage];
+        document.documentElement.lang = currentLanguage;
+        document.title = currentLanguage === "fr"
+          ? "Aurélie Fidelia — Portfolio en génie logiciel"
+          : "Aurélie Fidelia — Software Engineering Portfolio";
+        document.querySelector('meta[name="description"]').content = currentLanguage === "fr"
+          ? "Aurélie Fidelia est étudiante en génie logiciel à l'ÉTS et explore le logiciel, les systèmes embarqués et les projets collaboratifs."
+          : "Aurélie Fidelia is a software engineering student at ÉTS exploring software, embedded systems, and collaborative technical projects.";
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const translation = dictionary[element.dataset.i18n];
+          if (translation) {
+            element.textContent = translation;
+          }
+        });
+        document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+          const translation = dictionary[element.dataset.i18nAria];
+          if (translation) {
+            element.setAttribute("aria-label", translation);
+          }
+        });
+        document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+          const translation = dictionary[element.dataset.i18nAlt];
+          if (translation) {
+            element.setAttribute("alt", translation);
+          }
+        });
+        document.querySelectorAll('[data-field="globe-state"]').forEach((element) => {
+          if (element.dataset.state !== "error") {
+            element.textContent = dictionary.globeLoading;
+          }
+        });
+        languageToggle.textContent = currentLanguage === "fr" ? "EN" : "FR";
+        languageToggle.setAttribute("aria-label", dictionary.toggleLabel);
+        categoryLabels = dictionary.categories;
+      }
+
+      function setLanguage(language) {
+        if (language === currentLanguage) {
+          return;
+        }
+        currentLanguage = language;
+        applyTranslations();
+        renderProjects();
+        renderFilters();
+      }
+
+      languageToggle.addEventListener("click", () => {
+        setLanguage(currentLanguage === "fr" ? "en" : "fr");
+      });
+      renderProjects();
+      renderFilters();
+
+      document.querySelectorAll("[data-nav-filter]").forEach((link) => {
+        link.addEventListener("click", () => setActiveFilter(link.dataset.navFilter));
+      });
+
+      const nightSky = document.querySelector(".night-sky");
+      const sparkleLayer = document.querySelector(".cursor-sparkles");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+      const starFragment = document.createDocumentFragment();
+
+      for (let index = 0; index < 42; index += 1) {
+        const star = document.createElement("span");
+        star.className = "sky-star";
+        star.style.left = `${(index * 67.7 + 13) % 100}%`;
+        star.style.top = `${(index * 43.1 + 8) % 100}%`;
+        star.style.setProperty("--star-size", `${index % 7 === 0 ? 2 : 1}px`);
+        star.style.setProperty("--star-duration", `${5 + (index % 6) * 1.35}s`);
+        star.style.setProperty("--star-delay", `${-((index * 1.7) % 11)}s`);
+        starFragment.append(star);
+      }
+      nightSky.append(starFragment);
+
+      let sparklePool = [];
+      let sparkleIndex = 0;
+      let previousPointer = { x: -100, y: -100, time: 0 };
+
+      function stopSparkleTrail() {
+        sparkleLayer.replaceChildren();
+        sparklePool = [];
+        sparkleIndex = 0;
+      }
+
+      function startSparkleTrail() {
+        stopSparkleTrail();
+        if (reducedMotion.matches || !finePointer.matches) {
+          return;
+        }
+        const fragment = document.createDocumentFragment();
+        for (let index = 0; index < 12; index += 1) {
+          const sparkle = document.createElement("span");
+          sparkle.className = "cursor-sparkle";
+          sparkle.setAttribute("aria-hidden", "true");
+          sparklePool.push(sparkle);
+          fragment.append(sparkle);
+        }
+        sparkleLayer.append(fragment);
+      }
+
+      function showCursorSparkle(event) {
+        const now = performance.now();
+        const distance = Math.hypot(event.clientX - previousPointer.x, event.clientY - previousPointer.y);
+        if (document.hidden || now - previousPointer.time < 55 || distance < 24 || sparklePool.length === 0) {
+          return;
+        }
+        previousPointer = { x: event.clientX, y: event.clientY, time: now };
+        const sparkle = sparklePool[sparkleIndex];
+        sparkleIndex = (sparkleIndex + 1) % sparklePool.length;
+        sparkle.style.left = `${event.clientX}px`;
+        sparkle.style.top = `${event.clientY}px`;
+        sparkle.style.setProperty("--sparkle-size", `${5 + Math.random() * 4}px`);
+        sparkle.style.setProperty("--drift-x", `${-9 + Math.random() * 18}px`);
+        sparkle.style.setProperty("--drift-y", `${-13 + Math.random() * 9}px`);
+        sparkle.classList.remove("is-visible");
+        void sparkle.offsetWidth;
+        sparkle.classList.add("is-visible");
+      }
+
+      startSparkleTrail();
+      window.addEventListener("pointermove", showCursorSparkle, { passive: true });
+      finePointer.addEventListener("change", startSparkleTrail);
+      reducedMotion.addEventListener("change", startSparkleTrail);
+      document.addEventListener("visibilitychange", () => {
+        document.documentElement.classList.toggle("is-paused", document.hidden);
+      });
+    </script>
+  </body>
+</html>
