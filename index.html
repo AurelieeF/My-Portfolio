@@ -1644,7 +1644,7 @@
           });
         }
 
-        if (!finePointer.matches || title.dataset.particleMotion === "ready") return;
+        if (title.dataset.particleMotion === "ready") return;
         title.dataset.particleMotion = "ready";
         const titleBounds = title.getBoundingClientRect();
         const chars = [...title.querySelectorAll(".particle-char")].map((element) => {
@@ -1700,7 +1700,6 @@
         });
 
         title.addEventListener("pointermove", (event) => {
-          if (event.pointerType === "touch") return;
           const radius = 100;
           const bounds = title.getBoundingClientRect();
           let closest = null;
