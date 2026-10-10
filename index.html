@@ -23,6 +23,10 @@
       .site-header{min-height:76px;padding:12px max(32px,calc((100vw - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #92a9b824;background:#09121df5}
       .header-actions{display:flex;align-items:center;gap:12px}
       .wordmark{display:inline-flex;flex:none;gap:11px;align-items:center;font:500 10px var(--mono);letter-spacing:.12em}
+      .wordmark-name{position:relative;display:inline-flex;align-items:center;white-space:nowrap;cursor:default;user-select:none;padding:4px 0}
+      .wordmark-name .particle-char{display:inline-block;position:relative;transition:transform 150ms ease-out, opacity 150ms ease-out, text-shadow 150ms ease-out;will-change:transform}
+      .wordmark-name .particle-char.is-dust{color:#f7d3ef;text-shadow:0 0 12px rgba(255,196,241,.8)}
+      .wordmark-name .particle-dot{position:absolute;left:0;top:0;pointer-events:none;border-radius:50%;background:radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(236,195,255,.95) 26%, rgba(96,227,240,.42) 58%, rgba(96,227,240,0) 100%);box-shadow:0 0 12px rgba(242,178,239,.7), 0 0 18px rgba(122,235,240,.35);opacity:0;transform:translate(-50%, -50%) scale(.4);animation:particle-float 700ms ease-out forwards;}
       .wordmark-mark{display:grid;width:30px;height:30px;place-items:center;border:1px solid #3b7480;color:var(--cyan);font-size:11px}
       .primary-nav{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
       .primary-nav a,.header-index{color:#c0cbd2;font-size:11px}
@@ -49,7 +53,8 @@
       .readout-orbit:after{inset:52px;border-style:solid}
       .readout-orbit span{position:absolute;top:36px;right:12px;width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 16px #83d2df8c}
       .readout-orbit i{position:absolute;top:50%;left:50%;width:38px;height:38px;transform:translate(-50%,-50%);border:1px solid #6a8995;background:radial-gradient(circle,#83d2df24,transparent 70%)}
-      .hero-coordinate{position:absolute;bottom:28px;left:0;color:#9aabb5;font:9px var(--mono);letter-spacing:.1em}
+      .hero-coordinate{position:absolute;bottom:28px;left:0;color:#9aabb5;font:9px var(--mono);letter-spacing:.1em;cursor:default;user-select:none;pointer-events:none}
+      @keyframes particle-float{0%{opacity:.9;transform:translate(-50%, -50%) scale(.5)}100%{opacity:0;transform:translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.5)}}
       .content-section{padding-top:78px;padding-bottom:26px}
       .section-heading{display:flex;justify-content:space-between;align-items:end;gap:42px;margin-bottom:26px}
       .section-heading .eyebrow{margin-bottom:12px}
@@ -664,7 +669,7 @@
     <header class="site-header">
       <a class="wordmark" href="#top" aria-label="Accueil du portfolio" data-i18n-aria="homeLabel">
         <span class="wordmark-mark" aria-hidden="true">AF</span>
-        <span>AURÉLIE FIDELIA</span>
+        <span class="wordmark-name" aria-label="AURÉLIE FIDELIA">AURÉLIE FIDELIA</span>
       </a>
       <nav class="primary-nav" aria-label="Navigation principale" data-i18n-aria="navLabel">
         <a href="#projects" data-i18n="navProjects">Projets</a>
@@ -709,7 +714,7 @@
           </svg>
           <div class="hero-flora-sparkles" aria-hidden="true"></div>
         </div>
-        <div class="hero-coordinate" aria-hidden="true">AURÉLIE FIDELIA / GREATER MONTRÉAL</div>
+        <div class="hero-coordinate" aria-label="AURÉLIE FIDELIA / GREATER MONTRÉAL" aria-live="polite"></div>
       </section>
 
       <section class="section-shell content-section" id="projects" aria-labelledby="projects-title">
@@ -1535,6 +1540,7 @@
       const sparkleLayer = document.querySelector(".cursor-sparkles");
       const plantSparkContainer = document.querySelector(".hero-flora-sparkles");
       const plantHoverZone = document.querySelector(".hero-flora-wrap");
+      const heroCoordinate = document.querySelector(".hero-coordinate");
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
       const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
       const starFragment = document.createDocumentFragment();
@@ -1608,6 +1614,68 @@
         }
       }
 
+      function splitTextIntoParticles(target, text) {
+        if (!target || reducedMotion.matches) return;
+        target.replaceChildren();
+        [...text].forEach((char) => {
+          const span = document.createElement("span");
+          span.className = "particle-char";
+          span.textContent = char;
+          target.append(span);
+        });
+      }
+
+      function attachParticleMotion(target) {
+        if (!target || reducedMotion.matches || !finePointer.matches) return;
+
+        const chars = [...target.children];
+        chars.forEach((charEl) => {
+          charEl.addEventListener("pointermove", (event) => {
+            const rect = charEl.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const distance = Math.hypot(x - rect.width / 2, y - rect.height / 2);
+            if (distance < 9) return;
+
+            const spark = document.createElement("span");
+            spark.className = "particle-dot";
+            spark.style.left = `${x}px`;
+            spark.style.top = `${y}px`;
+            spark.style.setProperty("--dx", `${(-18 + Math.random() * 36).toFixed(2)}px`);
+            spark.style.setProperty("--dy", `${(-16 - Math.random() * 42).toFixed(2)}px`);
+            charEl.append(spark);
+            setTimeout(() => spark.remove(), 700);
+
+            const offsetX = (Math.random() - 0.5) * 18;
+            const offsetY = -8 - Math.random() * 18;
+            charEl.classList.add("is-dust");
+            charEl.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(1.06)`;
+            setTimeout(() => {
+              charEl.classList.remove("is-dust");
+              charEl.style.transform = "";
+            }, 170);
+          });
+        });
+      }
+
+      function spreadNameParticles() {
+        const wordmarkTarget = document.querySelector(".wordmark-name");
+        if (wordmarkTarget) {
+          splitTextIntoParticles(wordmarkTarget, wordmarkTarget.textContent.trim());
+          attachParticleMotion(wordmarkTarget);
+        }
+
+        if (!heroCoordinate || reducedMotion.matches) return;
+        const label = "AURÉLIE FIDELIA / GREATER MONTRÉAL";
+        heroCoordinate.replaceChildren();
+        [...label].forEach((char) => {
+          const span = document.createElement("span");
+          span.className = "particle-char";
+          span.textContent = char;
+          heroCoordinate.append(span);
+        });
+      }
+
       function showCursorSparkle(event) {
         const now = performance.now();
         const distance = Math.hypot(event.clientX - previousPointer.x, event.clientY - previousPointer.y);
@@ -1637,10 +1705,15 @@
         plantHoverZone.addEventListener("click", plantActivate);
       }
 
+      spreadNameParticles();
       startSparkleTrail();
       window.addEventListener("pointermove", showCursorSparkle, { passive: true });
       finePointer.addEventListener("change", startSparkleTrail);
-      reducedMotion.addEventListener("change", startSparkleTrail);
+      reducedMotion.addEventListener("change", () => {
+        startSparkleTrail();
+        spreadNameParticles();
+      });
+      window.addEventListener("resize", spreadNameParticles);
       document.addEventListener("visibilitychange", () => {
         document.documentElement.classList.toggle("is-paused", document.hidden);
       });
