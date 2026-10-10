@@ -23,10 +23,9 @@
       .site-header{min-height:76px;padding:12px max(32px,calc((100vw - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #92a9b824;background:#09121df5}
       .header-actions{display:flex;align-items:center;gap:12px}
       .wordmark{display:inline-flex;flex:none;gap:11px;align-items:center;font:500 10px var(--mono);letter-spacing:.12em}
-      .wordmark-name{position:relative;display:inline-flex;align-items:center;white-space:nowrap;cursor:default;user-select:none;padding:4px 0}
-      .wordmark-name .particle-char{display:inline-block;position:relative;transition:transform 150ms ease-out, opacity 150ms ease-out, text-shadow 150ms ease-out;will-change:transform}
-      .wordmark-name .particle-char.is-dust{color:#f7d3ef;text-shadow:0 0 12px rgba(255,196,241,.8)}
-      .wordmark-name .particle-dot{position:absolute;left:0;top:0;pointer-events:none;border-radius:50%;background:radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(236,195,255,.95) 26%, rgba(96,227,240,.42) 58%, rgba(96,227,240,0) 100%);box-shadow:0 0 12px rgba(242,178,239,.7), 0 0 18px rgba(122,235,240,.35);opacity:0;transform:translate(-50%, -50%) scale(.4);animation:particle-float 700ms ease-out forwards;}
+      .hero-title .particle-char{display:inline-block;position:relative;white-space:pre;transition:color 220ms ease-out,text-shadow 220ms ease-out;will-change:transform}
+      .hero-title .particle-char.is-dust{color:#fff;text-shadow:0 0 9px #ffd4fa,0 0 18px #ee9ee5}
+      .hero-title .particle-dot{position:absolute;left:50%;top:50%;z-index:2;width:6px;height:6px;pointer-events:none;border-radius:50%;background:radial-gradient(circle,#fff 0%,#f5bdf0 32%,#81e9ef99 64%,transparent 100%);box-shadow:0 0 7px #f2b2ef,0 0 12px #7aebf0;opacity:0;transform:translate(-50%,-50%) scale(.4);animation:particle-float 760ms ease-out forwards}
       .wordmark-mark{display:grid;width:30px;height:30px;place-items:center;border:1px solid #3b7480;color:var(--cyan);font-size:11px}
       .primary-nav{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
       .primary-nav a,.header-index{color:#c0cbd2;font-size:11px}
@@ -302,6 +301,7 @@
       @keyframes light-float { to { opacity: .48; transform: translateY(-8px); } }
       h1, h2 { font-family: var(--sans); font-weight: 500; }
       h1 { font-size: clamp(60px, 7.4vw, 94px); letter-spacing: -.065em; line-height: .99; }
+      .hero-title{cursor:default}
       h1 span { color: #e6abd9; }
       h2 { color: #f3e9f0; font-size: clamp(31px, 4vw, 43px); letter-spacing: -.035em; }
       h3 { color: #f5eaf2; font-family: var(--sans); font-weight: 500; }
@@ -689,7 +689,7 @@
       <section class="hero section-shell" id="top" aria-labelledby="intro-title">
         <div class="hero-copy">
           <p class="eyebrow"><span class="eyebrow-line"></span> <span data-i18n="heroEyebrow">GÉNIE LOGICIEL · ÉTS</span></p>
-          <h1 id="intro-title">Aurélie<br><span>Fidelia.</span></h1>
+          <h1 id="intro-title" class="hero-title">Aurélie<br><span>Fidelia.</span></h1>
           <p class="hero-intro" data-i18n="heroIntro">Je suis étudiante en génie logiciel à l’ÉTS et j’explore le logiciel, les systèmes embarqués et les projets collaboratifs. J’aime créer des outils pratiques et comprendre les liens entre le logiciel et les systèmes physiques.</p>
           <div class="intro-details"><span data-i18n="location">GRAND MONTRÉAL, QUÉBEC, CANADA</span><span>FRANÇAIS · ENGLISH</span></div>
           <a class="text-link" href="#projects"><span data-i18n="exploreProjects">Découvrir mes projets</span> <span aria-hidden="true">↓</span></a>
@@ -1614,65 +1614,135 @@
         }
       }
 
-      function splitTextIntoParticles(target, text) {
-        if (!target || reducedMotion.matches) return;
-        target.replaceChildren();
-        [...text].forEach((char) => {
-          const span = document.createElement("span");
-          span.className = "particle-char";
-          span.textContent = char;
-          target.append(span);
-        });
-      }
-
-      function attachParticleMotion(target) {
-        if (!target || reducedMotion.matches || !finePointer.matches) return;
-
-        const chars = [...target.children];
-        chars.forEach((charEl) => {
-          charEl.addEventListener("pointermove", (event) => {
-            const rect = charEl.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-            const distance = Math.hypot(x - rect.width / 2, y - rect.height / 2);
-            if (distance < 9) return;
-
-            const spark = document.createElement("span");
-            spark.className = "particle-dot";
-            spark.style.left = `${x}px`;
-            spark.style.top = `${y}px`;
-            spark.style.setProperty("--dx", `${(-18 + Math.random() * 36).toFixed(2)}px`);
-            spark.style.setProperty("--dy", `${(-16 - Math.random() * 42).toFixed(2)}px`);
-            charEl.append(spark);
-            setTimeout(() => spark.remove(), 700);
-
-            const offsetX = (Math.random() - 0.5) * 18;
-            const offsetY = -8 - Math.random() * 18;
-            charEl.classList.add("is-dust");
-            charEl.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(1.06)`;
-            setTimeout(() => {
-              charEl.classList.remove("is-dust");
-              charEl.style.transform = "";
-            }, 170);
-          });
-        });
-      }
-
       function spreadNameParticles() {
-        const wordmarkTarget = document.querySelector(".wordmark-name");
-        if (wordmarkTarget) {
-          splitTextIntoParticles(wordmarkTarget, wordmarkTarget.textContent.trim());
-          attachParticleMotion(wordmarkTarget);
+        const title = document.querySelector(".hero-title");
+        if (!title) return;
+
+        if (reducedMotion.matches) {
+          title.querySelectorAll(".particle-char").forEach((char) => {
+            char.replaceWith(document.createTextNode(char.textContent));
+          });
+          delete title.dataset.particleMotion;
+          return;
         }
 
-        if (!heroCoordinate || reducedMotion.matches) return;
-        const label = "AURÉLIE FIDELIA / GREATER MONTRÉAL";
-        heroCoordinate.replaceChildren();
-        [...label].forEach((char) => {
-          const span = document.createElement("span");
-          span.className = "particle-char";
-          span.textContent = char;
-          heroCoordinate.append(span);
+        if (!title.querySelector(".particle-char")) {
+          const walker = document.createTreeWalker(title, NodeFilter.SHOW_TEXT);
+          const textNodes = [];
+          while (walker.nextNode()) textNodes.push(walker.currentNode);
+          textNodes.forEach((textNode) => {
+            const fragment = document.createDocumentFragment();
+            [...textNode.textContent].forEach((char) => {
+              const span = document.createElement("span");
+              span.className = "particle-char";
+              span.textContent = char;
+              fragment.append(span);
+            });
+            textNode.replaceWith(fragment);
+          });
+        }
+
+        if (!finePointer.matches || title.dataset.particleMotion === "ready") return;
+        title.dataset.particleMotion = "ready";
+        const titleBounds = title.getBoundingClientRect();
+        const chars = [...title.querySelectorAll(".particle-char")].map((element) => {
+          const rect = element.getBoundingClientRect();
+          return {
+            element,
+            offsetX: rect.left + rect.width / 2 - titleBounds.left,
+            offsetY: rect.top + rect.height / 2 - titleBounds.top,
+            currentX: 0,
+            currentY: 0,
+            targetX: 0,
+            targetY: 0,
+          };
+        });
+        let lastParticleAt = 0;
+        let animationFrame = 0;
+        let previousFrameTime = 0;
+
+        const animateLetters = (time) => {
+          animationFrame = 0;
+          const elapsed = previousFrameTime ? time - previousFrameTime : 16;
+          previousFrameTime = time;
+          const easing = 1 - Math.exp(-elapsed / 75);
+          let stillMoving = false;
+
+          chars.forEach((char) => {
+            char.currentX += (char.targetX - char.currentX) * easing;
+            char.currentY += (char.targetY - char.currentY) * easing;
+            if (Math.abs(char.targetX - char.currentX) > 0.08 || Math.abs(char.targetY - char.currentY) > 0.08) {
+              stillMoving = true;
+            } else {
+              char.currentX = char.targetX;
+              char.currentY = char.targetY;
+            }
+            char.element.style.transform = `translate(${char.currentX.toFixed(2)}px, ${char.currentY.toFixed(2)}px)`;
+          });
+
+          if (stillMoving) animationFrame = requestAnimationFrame(animateLetters);
+          else previousFrameTime = 0;
+        };
+
+        const scheduleLetterAnimation = () => {
+          if (!animationFrame) animationFrame = requestAnimationFrame(animateLetters);
+        };
+
+        window.addEventListener("resize", () => {
+          const bounds = title.getBoundingClientRect();
+          chars.forEach((char) => {
+            const rect = char.element.getBoundingClientRect();
+            char.offsetX = rect.left + rect.width / 2 - char.currentX - bounds.left;
+            char.offsetY = rect.top + rect.height / 2 - char.currentY - bounds.top;
+          });
+        });
+
+        title.addEventListener("pointermove", (event) => {
+          if (event.pointerType === "touch") return;
+          const radius = 100;
+          const bounds = title.getBoundingClientRect();
+          let closest = null;
+          let closestDistance = radius;
+
+          chars.forEach((char) => {
+            const { element, offsetX, offsetY } = char;
+            const centerX = bounds.left + offsetX;
+            const centerY = bounds.top + offsetY;
+            const deltaX = centerX - event.clientX;
+            const deltaY = centerY - event.clientY;
+            const distance = Math.hypot(deltaX, deltaY);
+            const strength = Math.max(0, 1 - distance / radius);
+            const easedStrength = strength * strength;
+
+            char.targetX = (deltaX / (distance || 1)) * easedStrength * 18;
+            char.targetY = (deltaY / (distance || 1)) * easedStrength * 18;
+            element.classList.toggle("is-dust", strength > 0.3);
+            if (distance < closestDistance) {
+              closest = element;
+              closestDistance = distance;
+            }
+          });
+
+          const now = performance.now();
+          if (closest && closestDistance < 28 && now - lastParticleAt > 220) {
+            lastParticleAt = now;
+            const spark = document.createElement("span");
+            spark.className = "particle-dot";
+            spark.style.setProperty("--dx", `${-10 + Math.random() * 20}px`);
+            spark.style.setProperty("--dy", `${-16 - Math.random() * 18}px`);
+            closest.append(spark);
+            setTimeout(() => spark.remove(), 760);
+          }
+          scheduleLetterAnimation();
+        });
+
+        title.addEventListener("pointerleave", () => {
+          chars.forEach((char) => {
+            char.targetX = 0;
+            char.targetY = 0;
+            char.element.classList.remove("is-dust");
+          });
+          scheduleLetterAnimation();
         });
       }
 
@@ -1708,7 +1778,10 @@
       spreadNameParticles();
       startSparkleTrail();
       window.addEventListener("pointermove", showCursorSparkle, { passive: true });
-      finePointer.addEventListener("change", startSparkleTrail);
+      finePointer.addEventListener("change", () => {
+        startSparkleTrail();
+        spreadNameParticles();
+      });
       reducedMotion.addEventListener("change", () => {
         startSparkleTrail();
         spreadNameParticles();
