@@ -35,7 +35,7 @@
       .status-dot{display:inline-block;width:6px;height:6px;margin:0 8px 1px 0;border-radius:50%;background:var(--cyan)}
       .hero{min-height:560px;position:relative;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:48px;padding-top:50px;padding-bottom:84px}
       .eyebrow{margin:0 0 17px;color:var(--cyan);font:10px var(--mono);letter-spacing:.14em}
-      .eyebrow-line{display:inline-block;width:23px;height:1px;margin:0 9px 3px 0;background:var(--cyan)}
+      .eyebrow-stars{display:inline-block;margin:0 9px 0 0;color:var(--cyan);font-size:9px;letter-spacing:.04em;vertical-align:1px}
       h1,h2,h3,p{margin-top:0}
       h1{margin-bottom:22px;font-size:clamp(52px,7vw,83px);font-weight:600;letter-spacing:-.075em;line-height:1.08}
       h1 span{color:#9eafb9}
@@ -312,7 +312,7 @@
         font: 500 11px/1.5 var(--body);
         letter-spacing: .09em;
       }
-      .eyebrow-line { background: #e8a9df; }
+      .eyebrow-stars { color: #e8a9df; }
       .hero-intro { color: #eee4ed; font-size: 17px; }
       .intro-details { color: #d2c5dc; font: 11px/1.6 var(--body); letter-spacing: .04em; }
       .text-link {
@@ -690,7 +690,7 @@
     <main id="main">
       <section class="hero section-shell" id="top" aria-labelledby="intro-title">
         <div class="hero-copy">
-           <span data-i18n="heroEyebrow">GÉNIE LOGICIEL · ÉTS</span></p>
+          <p class="eyebrow"><span class="eyebrow-stars" aria-hidden="true">✦ ✦ ✦</span> <span data-i18n="heroEyebrow">GÉNIE LOGICIEL · ÉTS</span></p>
           <h1 id="intro-title" class="hero-title">Aurélie<br><span class="hero-surname">Fidelia.</span></h1>
           <p class="hero-intro" data-i18n="heroIntro">Je suis étudiante en génie logiciel à l’ÉTS et j’explore le logiciel, les systèmes embarqués et les projets collaboratifs. J’aime créer des outils pratiques et comprendre les liens entre le logiciel et les systèmes physiques.</p>
           <div class="intro-details"><span data-i18n="location">GRAND MONTRÉAL, QUÉBEC, CANADA</span><span>FRANÇAIS · ENGLISH</span></div>
